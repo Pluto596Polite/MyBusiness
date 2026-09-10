@@ -3,36 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Affordable hand-coded websites for small businesses worldwide. From R950 once-off. Free preview before you pay.">
+<title>Frontier Digital</title>
+<meta name="description" content="Frontier Digital — hand-coded websites for small businesses, from R950 once-off. Two live examples you can open. Free preview before you pay.">
+<meta property="og:title" content="Frontier Digital">
+<meta property="og:description" content="Hand-coded websites for small businesses, from R950. Free preview before you pay.">
+<meta property="og:type" content="website">
 <style>
   html { color-scheme: light dark; }
   body { margin: 0; }
   img { max-width: 100%; }
   [hidden] { display: none !important; }
 </style>
-<title>Baywork Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 
 <style>
-  /* ---------- tokens: light is the base, every colour declared here ---------- */
+  /* ---------- tokens: monochrome. light is the base ---------- */
   :root {
-    --paper:       #F5EFE1;   /* beige ground */
-    --paper-2:     #EDE4D1;
-    --paper-3:     #E2D5BC;
-    --forest:      #1C3427;   /* brand green */
-    --forest-deep: #142519;
-    --ink:         #1A2A20;
-    --ink-soft:    #4E5F53;
-    --accent:      #1C3427;
-    --accent-ink:  #F5EFE1;
-    --orange:      #C05F21;   /* primary call-to-action */
-    --orange-ink:  #FFF6EC;
-    --amber:       #E39B4B;   /* secondary warm accent */
-    --line:        rgba(28, 52, 39, .22);
-    --line-soft:   rgba(28, 52, 39, .10);
-    --shadow:      0 1px 0 rgba(28,52,39,.06), 0 18px 40px -28px rgba(28,52,39,.6);
+    --paper:     #FFFFFF;
+    --paper-2:   #F2F2F0;
+    --paper-3:   #E4E4E1;
+    --ink:       #0B0B0B;
+    --ink-soft:  #595956;
+    --invert-bg: #0B0B0B;
+    --invert-fg: #FAFAF8;
+    --line:      rgba(11, 11, 11, .24);
+    --line-soft: rgba(11, 11, 11, .10);
+    --shadow:    0 1px 0 rgba(11,11,11,.05), 0 20px 44px -30px rgba(11,11,11,.55);
 
     --f-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
     --f-body:    "Source Serif 4", Georgia, "Times New Roman", serif;
@@ -40,44 +38,34 @@
 
     --gutter: clamp(1rem, 4vw, 3.5rem);
     --measure: 62ch;
-    --radius: 3px;
+    --radius: 2px;
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper:       #101A14;
-      --paper-2:     #17241B;
-      --paper-3:     #1C3427;
-      --forest:      #1C3427;
-      --forest-deep: #0C140F;
-      --ink:         #F0E8D7;
-      --ink-soft:    #A6B3A6;
-      --accent:      #8FBB9C;
-      --accent-ink:  #0E1811;
-      --orange:      #DE8146;
-      --orange-ink:  #16210F;
-      --amber:       #E9AE6A;
-      --line:        rgba(240, 232, 215, .18);
-      --line-soft:   rgba(240, 232, 215, .09);
-      --shadow:      0 1px 0 rgba(0,0,0,.4), 0 18px 40px -28px rgba(0,0,0,.9);
+      --paper:     #0B0B0B;
+      --paper-2:   #151514;
+      --paper-3:   #1F1F1D;
+      --ink:       #F5F5F2;
+      --ink-soft:  #A2A29E;
+      --invert-bg: #F5F5F2;
+      --invert-fg: #0B0B0B;
+      --line:      rgba(245, 245, 242, .24);
+      --line-soft: rgba(245, 245, 242, .10);
+      --shadow:    0 1px 0 rgba(0,0,0,.5), 0 20px 44px -30px rgba(0,0,0,.95);
     }
   }
   :root[data-theme="dark"] {
-    --paper:       #101A14;
-    --paper-2:     #17241B;
-    --paper-3:     #1C3427;
-    --forest:      #1C3427;
-    --forest-deep: #0C140F;
-    --ink:         #F0E8D7;
-    --ink-soft:    #A6B3A6;
-    --accent:      #8FBB9C;
-    --accent-ink:  #0E1811;
-    --orange:      #DE8146;
-    --orange-ink:  #16210F;
-    --amber:       #E9AE6A;
-    --line:        rgba(240, 232, 215, .18);
-    --line-soft:   rgba(240, 232, 215, .09);
-    --shadow:      0 1px 0 rgba(0,0,0,.4), 0 18px 40px -28px rgba(0,0,0,.9);
+    --paper:     #0B0B0B;
+    --paper-2:   #151514;
+    --paper-3:   #1F1F1D;
+    --ink:       #F5F5F2;
+    --ink-soft:  #A2A29E;
+    --invert-bg: #F5F5F2;
+    --invert-fg: #0B0B0B;
+    --line:      rgba(245, 245, 242, .24);
+    --line-soft: rgba(245, 245, 242, .10);
+    --shadow:    0 1px 0 rgba(0,0,0,.5), 0 20px 44px -30px rgba(0,0,0,.95);
   }
 
   /* ---------- base ---------- */
@@ -92,7 +80,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.04; margin: 0; }
+  h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.03; margin: 0; }
   p { margin: 0; }
   a { color: inherit; }
 
@@ -100,33 +88,31 @@
 
   .label {
     font-family: var(--f-mono); font-size: .72rem;
-    letter-spacing: .14em; text-transform: uppercase; color: var(--orange);
+    letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft);
   }
 
   section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
 
   .sec-head { display: flex; flex-direction: column; gap: .9rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
-  .sec-head h2 { font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.9rem); font-weight: 700; letter-spacing: -.02em; }
+  .sec-head h2 { font-size: clamp(1.8rem, 1.2rem + 2.4vw, 3rem); font-weight: 800; letter-spacing: -.03em; }
   .sec-head p { color: var(--ink-soft); max-width: var(--measure); }
 
-  /* ---------- buttons ---------- */
+  /* ---------- buttons: contrast, not colour ---------- */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
-    font-family: var(--f-display); font-weight: 700; font-size: .96rem;
-    padding: .78rem 1.25rem; border-radius: var(--radius);
-    text-decoration: none; border: 1px solid transparent; cursor: pointer;
-    transition: transform .15s ease, background-color .15s ease, border-color .15s ease;
+    font-family: var(--f-display); font-weight: 700; font-size: .95rem;
+    padding: .78rem 1.3rem; border-radius: var(--radius);
+    text-decoration: none; border: 1px solid var(--ink); cursor: pointer;
+    transition: background-color .15s ease, color .15s ease, transform .15s ease;
   }
   .btn:hover { transform: translateY(-1px); }
-  .btn--primary { background: var(--orange); color: var(--orange-ink); }
-  .btn--primary:hover { background: color-mix(in srgb, var(--orange) 86%, var(--ink)); }
-  .btn--forest { background: var(--accent); color: var(--accent-ink); }
-  .btn--forest:hover { background: color-mix(in srgb, var(--accent) 86%, var(--ink)); }
-  .btn--ghost { border-color: var(--line); color: var(--ink); }
-  .btn--ghost:hover { border-color: var(--ink); }
+  .btn--solid { background: var(--invert-bg); color: var(--invert-fg); }
+  .btn--solid:hover { background: transparent; color: var(--ink); }
+  .btn--ghost { background: transparent; color: var(--ink); }
+  .btn--ghost:hover { background: var(--invert-bg); color: var(--invert-fg); }
 
   :where(a, button, input, textarea, select):focus-visible {
-    outline: 2px solid var(--orange); outline-offset: 3px;
+    outline: 2px solid var(--ink); outline-offset: 3px;
   }
 
   /* ---------- masthead ---------- */
@@ -134,56 +120,62 @@
     position: sticky; top: 0; z-index: 20;
     background: color-mix(in srgb, var(--paper) 92%, transparent);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line);
   }
   .mast__in { display: flex; align-items: center; gap: 1.5rem; padding-block: .85rem; }
-  .mark { display: flex; align-items: center; gap: .6rem; text-decoration: none; margin-right: auto; }
+  .mark { display: flex; align-items: center; gap: .65rem; text-decoration: none; margin-right: auto; }
   .mark__glyph {
-    width: 26px; height: 26px; border-radius: 2px;
-    background: var(--forest); color: var(--paper);
+    width: 28px; height: 28px;
+    background: var(--invert-bg); color: var(--invert-fg);
     display: grid; place-items: center;
-    font-family: var(--f-display); font-weight: 800; font-size: .82rem;
-    box-shadow: inset 0 -3px 0 var(--amber);
+    font-family: var(--f-display); font-weight: 800; font-size: .74rem; letter-spacing: -.02em;
   }
-  .mark__name { font-family: var(--f-display); font-weight: 700; letter-spacing: -.015em; font-size: 1.05rem; }
+  .mark__name {
+    font-family: var(--f-display); font-weight: 800;
+    letter-spacing: -.02em; font-size: 1.06rem;
+  }
   .mast nav { display: none; gap: 1.6rem; font-family: var(--f-display); font-weight: 500; font-size: .92rem; }
   .mast nav a { text-decoration: none; color: var(--ink-soft); }
   .mast nav a:hover { color: var(--ink); }
-  @media (min-width: 880px) { .mast nav { display: flex; } }
+  @media (min-width: 900px) { .mast nav { display: flex; } }
 
   /* ---------- hero ---------- */
   .hero { padding-block: clamp(3rem, 6vw, 5.5rem) clamp(2.5rem, 5vw, 4rem); }
   .hero__grid { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
   @media (min-width: 940px) { .hero__grid { grid-template-columns: 1.15fr .85fr; align-items: end; } }
 
-  .hero h1 { font-size: clamp(2.4rem, 1.4rem + 4.4vw, 4.5rem); font-weight: 800; letter-spacing: -.035em; }
-  .hero h1 em { font-style: normal; color: var(--orange); }
+  .hero h1 { font-size: clamp(2.5rem, 1.4rem + 4.6vw, 4.7rem); font-weight: 800; letter-spacing: -.04em; }
+  .hero h1 em {
+    font-style: normal;
+    background: var(--invert-bg); color: var(--invert-fg);
+    padding: 0 .18em; box-decoration-break: clone; -webkit-box-decoration-break: clone;
+  }
   .hero__lede { margin-top: 1.5rem; color: var(--ink-soft); max-width: 54ch; font-size: 1.12em; }
   .hero__cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
   .hero__meta { font-family: var(--f-mono); font-size: .78rem; color: var(--ink-soft); margin-top: 1.5rem; }
 
   .frame {
-    border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
-    background: var(--paper-3); box-shadow: var(--shadow);
+    border: 1px solid var(--ink); border-radius: var(--radius); overflow: hidden;
+    background: var(--paper-2); box-shadow: var(--shadow);
   }
   .frame__bar {
     display: flex; align-items: center; gap: .4rem;
     padding: .55rem .7rem; border-bottom: 1px solid var(--line);
-    background: color-mix(in srgb, var(--paper-3) 70%, var(--paper));
+    background: var(--paper-3);
   }
-  .frame__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+  .frame__dot { width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--line); }
   .frame__url {
     margin-left: .5rem; font-family: var(--f-mono); font-size: .7rem; color: var(--ink-soft);
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
   .frame__body { padding: 1.25rem; display: grid; gap: .7rem; }
-  .frame__h { height: 12px; border-radius: 2px; background: var(--forest); opacity: .9; width: 62%; }
-  .frame__l { height: 8px; border-radius: 2px; background: var(--ink); opacity: .22; }
+  .frame__h { height: 12px; background: var(--ink); width: 62%; }
+  .frame__l { height: 8px; background: var(--ink); opacity: .28; }
   .frame__l.s { width: 84%; } .frame__l.m { width: 70%; }
   .frame__row { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin-top: .4rem; }
-  .frame__tile { height: 42px; border-radius: 3px; background: var(--forest); opacity: .3; }
-  .frame__tile:nth-child(2) { background: var(--amber); opacity: .55; }
-  .frame__btn { margin-top: .5rem; width: 104px; height: 26px; border-radius: 2px; background: var(--orange); }
+  .frame__tile { height: 42px; border: 1px solid var(--line); }
+  .frame__tile:nth-child(2) { background: var(--ink); opacity: .12; }
+  .frame__btn { margin-top: .5rem; width: 104px; height: 26px; background: var(--ink); }
 
   /* ---------- positioning strip ---------- */
   .strip { border-block: 1px solid var(--line); background: var(--paper-2); }
@@ -191,6 +183,39 @@
   @media (min-width: 760px) { .strip__in { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
   .strip h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: .4rem; letter-spacing: -.01em; }
   .strip p { color: var(--ink-soft); font-size: .95rem; }
+
+  /* ---------- work ---------- */
+  .work { display: grid; gap: 1.5rem; }
+  @media (min-width: 900px) { .work { grid-template-columns: repeat(3, 1fr); } }
+
+  .case {
+    border: 1px solid var(--ink); border-radius: var(--radius);
+    background: var(--paper); display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .case__top {
+    padding: 1.15rem 1.25rem; border-bottom: 1px solid var(--line);
+    background: var(--invert-bg); color: var(--invert-fg);
+    display: flex; flex-direction: column; gap: .3rem;
+  }
+  .case__kind {
+    font-family: var(--f-mono); font-size: .68rem;
+    letter-spacing: .14em; text-transform: uppercase; opacity: .75;
+  }
+  .case__top h3 { font-size: 1.28rem; font-weight: 700; letter-spacing: -.02em; }
+  .case__body { padding: 1.25rem; display: flex; flex-direction: column; gap: .9rem; flex: 1; }
+  .case__body > p { color: var(--ink-soft); font-size: .95rem; }
+  .case ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; font-size: .9rem; }
+  .case li { display: grid; grid-template-columns: 1.1rem 1fr; gap: .45rem; }
+  .case li::before { content: "→"; font-family: var(--f-mono); color: var(--ink-soft); }
+  .case .btn { margin-top: auto; }
+  .case--empty { border-style: dashed; }
+  .case--empty .case__top { background: transparent; color: var(--ink); border-bottom-style: dashed; }
+
+  .disclaimer {
+    margin-top: 1.5rem; font-family: var(--f-mono); font-size: .76rem;
+    color: var(--ink-soft); border-left: 2px solid var(--line); padding-left: .9rem;
+  }
 
   /* ---------- packages ---------- */
   .tiers { display: grid; gap: 1.25rem; align-items: start; }
@@ -202,22 +227,22 @@
     border: 1px solid var(--line); border-radius: var(--radius);
     background: var(--paper);
   }
-  .tier--lead { border-color: var(--orange); box-shadow: var(--shadow); }
+  .tier--lead { border-color: var(--ink); border-width: 2px; box-shadow: var(--shadow); }
   .tier__top { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; }
   .tier h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.02em; }
   .tier__flag {
     font-family: var(--f-mono); font-size: .64rem; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--orange-ink); background: var(--orange); padding: .2rem .45rem; border-radius: 2px;
+    background: var(--invert-bg); color: var(--invert-fg); padding: .2rem .45rem;
   }
   .tier__price {
-    font-family: var(--f-display); font-weight: 800; font-size: 2.05rem;
-    letter-spacing: -.03em; font-variant-numeric: tabular-nums; line-height: 1.1;
+    font-family: var(--f-display); font-weight: 800; font-size: 2.15rem;
+    letter-spacing: -.035em; font-variant-numeric: tabular-nums; line-height: 1.08;
   }
-  .tier__usd { font-family: var(--f-mono); font-size: .78rem; color: var(--ink-soft); margin-top: .3rem; }
+  .tier__usd { font-family: var(--f-mono); font-size: .76rem; color: var(--ink-soft); margin-top: .3rem; }
   .tier__for { color: var(--ink-soft); font-size: .95rem; }
   .tier ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; font-size: .95rem; }
   .tier li { display: grid; grid-template-columns: 1.1rem 1fr; gap: .5rem; }
-  .tier li::before { content: "—"; color: var(--orange); font-family: var(--f-mono); }
+  .tier li::before { content: "—"; color: var(--ink-soft); font-family: var(--f-mono); }
   .tier .btn { margin-top: auto; }
 
   .notes {
@@ -234,29 +259,9 @@
     border-bottom: 1px solid var(--line); align-items: baseline;
   }
   @media (min-width: 760px) { .step { grid-template-columns: 4.5rem 15rem 1fr; } }
-  .step__n { font-family: var(--f-mono); font-size: .8rem; color: var(--orange); }
+  .step__n { font-family: var(--f-mono); font-size: .8rem; color: var(--ink-soft); }
   .step h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: -.015em; }
   .step p { color: var(--ink-soft); font-size: .96rem; max-width: 52ch; }
-
-  /* ---------- work ---------- */
-  .work { display: grid; gap: 1.25rem; }
-  @media (min-width: 820px) { .work { grid-template-columns: repeat(3, 1fr); } }
-  .work__item {
-    border: 1px solid var(--line); border-radius: var(--radius);
-    overflow: hidden; background: var(--paper-2); display: flex; flex-direction: column;
-  }
-  .work__thumb {
-    aspect-ratio: 16 / 10; max-width: 100%;
-    display: grid; place-items: center; padding: 1rem; text-align: center;
-    background:
-      repeating-linear-gradient(135deg, var(--line-soft) 0 1px, transparent 1px 11px),
-      var(--paper-3);
-    border-bottom: 1px solid var(--line);
-  }
-  .work__thumb span { font-family: var(--f-mono); font-size: .72rem; color: var(--ink-soft); }
-  .work__body { padding: 1.05rem 1.15rem 1.3rem; display: grid; gap: .3rem; }
-  .work__body h3 { font-size: 1.05rem; font-weight: 700; }
-  .work__body p { font-size: .92rem; color: var(--ink-soft); }
 
   /* ---------- faq ---------- */
   .faq { display: grid; gap: 0; border-top: 1px solid var(--line); max-width: 78ch; }
@@ -267,47 +272,54 @@
     display: flex; justify-content: space-between; gap: 1rem; align-items: center;
   }
   .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "+"; font-family: var(--f-mono); color: var(--orange); font-weight: 400; }
+  .faq summary::after { content: "+"; font-family: var(--f-mono); color: var(--ink-soft); font-weight: 400; }
   .faq details[open] summary::after { content: "–"; }
   .faq p { margin-top: .7rem; color: var(--ink-soft); max-width: var(--measure); font-size: .97rem; }
 
-  /* ---------- contact: full-bleed forest band ---------- */
-  .contact { background: var(--forest); color: #F5EFE1; }
+  /* ---------- contact: inverted band ---------- */
+  .contact { background: var(--invert-bg); color: var(--invert-fg); }
   .contact__grid { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
   @media (min-width: 900px) { .contact__grid { grid-template-columns: .9fr 1.1fr; } }
-  .contact .label { color: var(--amber); }
+  .contact .label { color: var(--invert-fg); opacity: .6; }
   .contact h2 {
-    font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.9rem); font-weight: 700;
-    letter-spacing: -.02em; margin-top: .9rem; color: #F5EFE1;
+    font-size: clamp(1.8rem, 1.2rem + 2.4vw, 3rem); font-weight: 800;
+    letter-spacing: -.03em; margin-top: .9rem; color: var(--invert-fg);
   }
-  .contact p { color: #CFD8CB; }
+  .contact p { color: var(--invert-fg); opacity: .78; }
   .contact .lede { margin-top: 1rem; max-width: 46ch; }
 
   .direct { display: grid; gap: .1rem; margin-top: 1.75rem; }
   .direct a, .direct div {
     display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
     text-decoration: none; padding-block: .7rem;
-    border-bottom: 1px solid rgba(245, 239, 225, .2);
+    border-bottom: 1px solid color-mix(in srgb, var(--invert-fg) 24%, transparent);
     font-family: var(--f-mono); font-size: .86rem;
   }
-  .direct span:first-child { color: var(--amber); }
-  .direct a:hover span:last-child { color: #FFFFFF; text-decoration: underline; }
+  .direct span:first-child { opacity: .6; }
+  .direct a:hover span:last-child { text-decoration: underline; }
 
   form { display: grid; gap: .9rem; }
   .field { display: grid; gap: .35rem; }
   .field label {
     font-family: var(--f-mono); font-size: .72rem; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--amber);
+    text-transform: uppercase; opacity: .6;
   }
   .field input, .field textarea, .field select {
     font: inherit; font-size: .98rem; width: 100%;
-    color: #F5EFE1; background: rgba(245, 239, 225, .07);
-    border: 1px solid rgba(245, 239, 225, .26);
+    color: var(--invert-fg); background: transparent;
+    border: 1px solid color-mix(in srgb, var(--invert-fg) 34%, transparent);
     border-radius: var(--radius); padding: .7rem .8rem;
   }
-  .field select option { color: #1A2A20; }
+  .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--invert-fg); }
+  .field select option { color: #0B0B0B; background: #FFFFFF; }
   .field textarea { min-height: 118px; resize: vertical; }
-  .field input::placeholder, .field textarea::placeholder { color: rgba(245, 239, 225, .45); }
+  .field input::placeholder, .field textarea::placeholder {
+    color: color-mix(in srgb, var(--invert-fg) 45%, transparent);
+  }
+  .contact .btn {
+    border-color: var(--invert-fg); background: var(--invert-fg); color: var(--invert-bg);
+  }
+  .contact .btn:hover { background: transparent; color: var(--invert-fg); }
 
   /* ---------- footer ---------- */
   footer { padding-block: 2.5rem; border-top: 1px solid var(--line); background: var(--paper-2); }
@@ -316,7 +328,7 @@
     font-family: var(--f-mono); font-size: .76rem; color: var(--ink-soft);
   }
   .foot__in a { text-decoration: none; }
-  .foot__in a:hover { color: var(--orange); }
+  .foot__in a:hover { color: var(--ink); text-decoration: underline; }
   .foot__in .spacer { margin-left: auto; }
 
   @media (prefers-reduced-motion: reduce) {
@@ -328,16 +340,16 @@
 <header class="mast">
   <div class="wrap mast__in">
     <a class="mark" href="#top">
-      <span class="mark__glyph">B</span>
-      <span class="mark__name">Baywork Studio</span>
+      <span class="mark__glyph">FD</span>
+      <span class="mark__name">Frontier Digital</span>
     </a>
     <nav>
-      <a href="#packages">Pricing</a>
-      <a href="#process">Process</a>
       <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn--primary" href="#contact">Get a quote</a>
+    <a class="btn btn--solid" href="#contact">Get a quote</a>
   </div>
 </header>
 
@@ -346,16 +358,16 @@
   <section class="hero wrap">
     <div class="hero__grid">
       <div>
-        <p class="label">Small websites, small budgets, worldwide</p>
-        <h1>A real website, under a thousand rand. <em>Here is the whole price list.</em></h1>
+        <p class="label">Frontier Digital · Websites for small businesses</p>
+        <h1>A real website, <em>under a thousand rand.</em></h1>
         <p class="hero__lede">
-          I build fast, hand-coded sites for small businesses and solo operators — from R950.
-          One person doing the work, so there is no agency margin baked into the quote.
-          Based in South Africa, working with clients anywhere.
+          Hand-coded sites for small businesses and solo operators — from R950. One person
+          doing the work, so there is no agency margin in the quote. Based in South Africa,
+          building for clients anywhere.
         </p>
         <div class="hero__cta">
-          <a class="btn btn--primary" href="#contact">Get a free preview of your site</a>
-          <a class="btn btn--ghost" href="#packages">See the pricing</a>
+          <a class="btn btn--solid" href="#contact">Get a free preview of your site</a>
+          <a class="btn btn--ghost" href="#work">See live examples</a>
         </div>
         <p class="hero__meta">Free preview first · You only pay if you like it · Live in 5–10 days</p>
       </div>
@@ -395,7 +407,73 @@
     </div>
   </section>
 
-  <section id="packages" class="wrap">
+  <section id="work" class="wrap">
+    <div class="sec-head">
+      <p class="label">Work</p>
+      <h2>Two builds you can open right now</h2>
+      <p>Both are live, both run on the same stack I would use for you: hand-written HTML, CSS and JavaScript, no framework, no build step, hosted free. Open them on your phone and watch how fast they load.</p>
+    </div>
+
+    <div class="work">
+      <article class="case">
+        <div class="case__top">
+          <span class="case__kind">Music school</span>
+          <h3>Crescendo Music Academy</h3>
+        </div>
+        <div class="case__body">
+          <p>A music school running piano, guitar, strings and voice lessons — the site has to sell the teachers and get a first lesson booked.</p>
+          <ul>
+            <li>Full-bleed looping video hero with a play/pause control</li>
+            <li>Lesson pricing tiers, teacher profiles, FAQ</li>
+            <li>Enquiry form with inline validation and a success state</li>
+            <li>Roughly 1.25 MB in total — loads on mobile data</li>
+          </ul>
+          <a class="btn btn--solid" href="https://pluto596polite.github.io/crescendo-music-academy/" target="_blank" rel="noopener">Open the live site</a>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__top">
+          <span class="case__kind">Tour operator</span>
+          <h3>Cape Meridian Tours</h3>
+        </div>
+        <div class="case__body">
+          <p>A small-group tour operator with a catalogue of trips — a bigger, multi-page build where every tour needs its own page and enquiry path.</p>
+          <ul>
+            <li>Six pages: home, tours, tour detail, about, contact, 404</li>
+            <li>Tour filtering, day-by-day itinerary accordion, testimonials</li>
+            <li>Video hero in two formats with a poster fallback</li>
+            <li>Full SEO: meta tags, social cards, structured data, sitemap</li>
+          </ul>
+          <a class="btn btn--solid" href="https://pluto596polite.github.io/cape-meridian-tours/" target="_blank" rel="noopener">Open the live site</a>
+        </div>
+      </article>
+
+      <article class="case case--empty">
+        <div class="case__top">
+          <span class="case__kind">Available</span>
+          <h3>Your business here</h3>
+        </div>
+        <div class="case__body">
+          <p>Send me what your business does and I will build the homepage for real, with your name on it, and email you the link. Free, and yours to judge before you pay anything.</p>
+          <ul>
+            <li>No template screenshot — a working page on a real address</li>
+            <li>Usually back with you inside three working days</li>
+            <li>No obligation if it is not what you wanted</li>
+          </ul>
+          <a class="btn btn--ghost" href="#contact">Request my free preview</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="disclaimer">
+      Both examples are demonstration builds for invented companies — Crescendo Music Academy and
+      Cape Meridian Tours are not real businesses. They exist to show the standard of the work,
+      not to claim clients I do not have.
+    </p>
+  </section>
+
+  <section id="pricing" class="wrap">
     <div class="sec-head">
       <p class="label">Pricing</p>
       <h2>Three prices, published up front</h2>
@@ -417,7 +495,7 @@
           <li>Mobile-first, loads in under two seconds</li>
           <li>Contact form straight to your inbox</li>
         </ul>
-        <a class="btn btn--forest" href="#contact">Start with Starter</a>
+        <a class="btn btn--ghost" href="#contact">Start with Starter</a>
       </article>
 
       <article class="tier tier--lead">
@@ -426,7 +504,7 @@
           <p class="tier__price">R2 450</p>
           <p class="tier__usd">once-off · ≈ $130 USD</p>
         </div>
-        <p class="tier__for">For anyone whose day is a diary — salons, guesthouses, tutors, coaches, consultants.</p>
+        <p class="tier__for">The Crescendo and Cape Meridian tier — several pages, real booking, proper SEO.</p>
         <ul>
           <li>Everything in Starter, across 4–6 pages</li>
           <li>Online booking with calendar sync</li>
@@ -434,7 +512,7 @@
           <li>Menu, price list or service catalogue</li>
           <li>Basic SEO so you rank for what you sell</li>
         </ul>
-        <a class="btn btn--primary" href="#contact">Start with Standard</a>
+        <a class="btn btn--solid" href="#contact">Start with Standard</a>
       </article>
 
       <article class="tier">
@@ -451,7 +529,7 @@
           <li>Custom APIs, dashboards and automation</li>
           <li>Scoped and quoted per project</li>
         </ul>
-        <a class="btn btn--forest" href="#contact">Discuss a custom build</a>
+        <a class="btn btn--ghost" href="#contact">Discuss a custom build</a>
       </article>
     </div>
 
@@ -459,7 +537,7 @@
       <p><strong>Care plan — R120 a month.</strong>
       Hosting, SSL certificate, weekly backups, security updates, uptime monitoring, and up to two content changes a month. Cancel any time; the domain, the site and the code stay yours.</p>
       <p><strong>Payment.</strong>
-      Half up front, half when the site goes live — R475 to start on a Starter build. South African clients pay by EFT; international clients by Wise, PayPal or card. Invoiced in your currency.</p>
+      Half up front, half when the site goes live — R475 to start on a Starter build. South African clients pay by EFT; international clients by Wise, PayPal or card, converted from the rand price at the day's rate.</p>
     </div>
   </section>
 
@@ -479,7 +557,7 @@
       <div class="step">
         <p class="step__n">Step 02</p>
         <h3>A free preview, built for real</h3>
-        <p>I build the homepage with your actual business on it and email you a live link. Not a template screenshot — the real thing, on a real address. No cost, no obligation.</p>
+        <p>I build the homepage with your actual business on it and email you a live link — the same way the two examples above went up. No cost, no obligation.</p>
       </div>
       <div class="step">
         <p class="step__n">Step 03</p>
@@ -494,38 +572,6 @@
     </div>
   </section>
 
-  <section id="work" class="wrap">
-    <div class="sec-head">
-      <p class="label">Work</p>
-      <h2>Recent builds</h2>
-      <p>Replace these three slots with real client work as it lands — a screenshot, the client's name and country, and the one number that improved.</p>
-    </div>
-
-    <div class="work">
-      <article class="work__item">
-        <div class="work__thumb"><span>screenshot slot 01</span></div>
-        <div class="work__body">
-          <h3>Client name</h3>
-          <p>Package · what it does · the result in one line.</p>
-        </div>
-      </article>
-      <article class="work__item">
-        <div class="work__thumb"><span>screenshot slot 02</span></div>
-        <div class="work__body">
-          <h3>Client name</h3>
-          <p>Package · what it does · the result in one line.</p>
-        </div>
-      </article>
-      <article class="work__item">
-        <div class="work__thumb"><span>screenshot slot 03</span></div>
-        <div class="work__body">
-          <h3>Client name</h3>
-          <p>Package · what it does · the result in one line.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
   <section id="faq" class="wrap">
     <div class="sec-head">
       <p class="label">Questions</p>
@@ -536,6 +582,10 @@
       <details open>
         <summary>How is this so much cheaper than the agency quote?</summary>
         <p>An agency quote carries a project manager, a designer, a developer and an office. This is one person who does all three jobs and works from home. The code is the same standard — there is just less of a business attached to it.</p>
+      </details>
+      <details>
+        <summary>Are the two examples real clients?</summary>
+        <p>No, and I will not pretend otherwise. Crescendo Music Academy and Cape Meridian Tours are demonstration builds for invented companies, made so you can judge the work before hiring me. Everything on them is real and working — the code, the speed, the forms — only the businesses are made up.</p>
       </details>
       <details>
         <summary>Do I own the site?</summary>
@@ -621,7 +671,7 @@
           <label for="message">What does the business do?</label>
           <textarea id="message" name="message" placeholder="Two or three lines is plenty. Existing site or social page? Paste the link."></textarea>
         </div>
-        <button class="btn btn--primary" type="submit">Send and get my free preview</button>
+        <button class="btn" type="submit">Send and get my free preview</button>
       </form>
     </div>
   </section>
@@ -629,10 +679,10 @@
 
 <footer>
   <div class="wrap foot__in">
-    <span>Baywork Studio · South Africa · working worldwide</span>
+    <span>Frontier Digital · South Africa · working worldwide</span>
     <span class="spacer"></span>
-    <a href="#packages">Pricing</a>
-    <a href="#process">Process</a>
+    <a href="#work">Work</a>
+    <a href="#pricing">Pricing</a>
     <a href="mailto:avanwyk191@gmail.com">Email</a>
   </div>
 </footer>
