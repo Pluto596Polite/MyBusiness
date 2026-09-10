@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Affordable hand-coded websites for small businesses worldwide. From R950 once-off. Free preview before you pay.">
+<style>
+  html { color-scheme: light dark; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Baywork Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  /* ---------- tokens: light is the base, every colour declared here ---------- */
+  :root {
+    --paper:       #F5EFE1;   /* beige ground */
+    --paper-2:     #EDE4D1;
+    --paper-3:     #E2D5BC;
+    --forest:      #1C3427;   /* brand green */
+    --forest-deep: #142519;
+    --ink:         #1A2A20;
+    --ink-soft:    #4E5F53;
+    --accent:      #1C3427;
+    --accent-ink:  #F5EFE1;
+    --orange:      #C05F21;   /* primary call-to-action */
+    --orange-ink:  #FFF6EC;
+    --amber:       #E39B4B;   /* secondary warm accent */
+    --line:        rgba(28, 52, 39, .22);
+    --line-soft:   rgba(28, 52, 39, .10);
+    --shadow:      0 1px 0 rgba(28,52,39,.06), 0 18px 40px -28px rgba(28,52,39,.6);
+
+    --f-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --f-body:    "Source Serif 4", Georgia, "Times New Roman", serif;
+    --f-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    --gutter: clamp(1rem, 4vw, 3.5rem);
+    --measure: 62ch;
+    --radius: 3px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:       #101A14;
+      --paper-2:     #17241B;
+      --paper-3:     #1C3427;
+      --forest:      #1C3427;
+      --forest-deep: #0C140F;
+      --ink:         #F0E8D7;
+      --ink-soft:    #A6B3A6;
+      --accent:      #8FBB9C;
+      --accent-ink:  #0E1811;
+      --orange:      #DE8146;
+      --orange-ink:  #16210F;
+      --amber:       #E9AE6A;
+      --line:        rgba(240, 232, 215, .18);
+      --line-soft:   rgba(240, 232, 215, .09);
+      --shadow:      0 1px 0 rgba(0,0,0,.4), 0 18px 40px -28px rgba(0,0,0,.9);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:       #101A14;
+    --paper-2:     #17241B;
+    --paper-3:     #1C3427;
+    --forest:      #1C3427;
+    --forest-deep: #0C140F;
+    --ink:         #F0E8D7;
+    --ink-soft:    #A6B3A6;
+    --accent:      #8FBB9C;
+    --accent-ink:  #0E1811;
+    --orange:      #DE8146;
+    --orange-ink:  #16210F;
+    --amber:       #E9AE6A;
+    --line:        rgba(240, 232, 215, .18);
+    --line-soft:   rgba(240, 232, 215, .09);
+    --shadow:      0 1px 0 rgba(0,0,0,.4), 0 18px 40px -28px rgba(0,0,0,.9);
+  }
+
+  /* ---------- base ---------- */
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: clamp(1rem, .96rem + .2vw, 1.075rem);
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.04; margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; }
+
+  .wrap { width: 100%; max-width: 1180px; margin-inline: auto; padding-inline: var(--gutter); }
+
+  .label {
+    font-family: var(--f-mono); font-size: .72rem;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--orange);
+  }
+
+  section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
+
+  .sec-head { display: flex; flex-direction: column; gap: .9rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+  .sec-head h2 { font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.9rem); font-weight: 700; letter-spacing: -.02em; }
+  .sec-head p { color: var(--ink-soft); max-width: var(--measure); }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+    font-family: var(--f-display); font-weight: 700; font-size: .96rem;
+    padding: .78rem 1.25rem; border-radius: var(--radius);
+    text-decoration: none; border: 1px solid transparent; cursor: pointer;
+    transition: transform .15s ease, background-color .15s ease, border-color .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn--primary { background: var(--orange); color: var(--orange-ink); }
+  .btn--primary:hover { background: color-mix(in srgb, var(--orange) 86%, var(--ink)); }
+  .btn--forest { background: var(--accent); color: var(--accent-ink); }
+  .btn--forest:hover { background: color-mix(in srgb, var(--accent) 86%, var(--ink)); }
+  .btn--ghost { border-color: var(--line); color: var(--ink); }
+  .btn--ghost:hover { border-color: var(--ink); }
+
+  :where(a, button, input, textarea, select):focus-visible {
+    outline: 2px solid var(--orange); outline-offset: 3px;
+  }
+
+  /* ---------- masthead ---------- */
+  .mast {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .mast__in { display: flex; align-items: center; gap: 1.5rem; padding-block: .85rem; }
+  .mark { display: flex; align-items: center; gap: .6rem; text-decoration: none; margin-right: auto; }
+  .mark__glyph {
+    width: 26px; height: 26px; border-radius: 2px;
+    background: var(--forest); color: var(--paper);
+    display: grid; place-items: center;
+    font-family: var(--f-display); font-weight: 800; font-size: .82rem;
+    box-shadow: inset 0 -3px 0 var(--amber);
+  }
+  .mark__name { font-family: var(--f-display); font-weight: 700; letter-spacing: -.015em; font-size: 1.05rem; }
+  .mast nav { display: none; gap: 1.6rem; font-family: var(--f-display); font-weight: 500; font-size: .92rem; }
+  .mast nav a { text-decoration: none; color: var(--ink-soft); }
+  .mast nav a:hover { color: var(--ink); }
+  @media (min-width: 880px) { .mast nav { display: flex; } }
+
+  /* ---------- hero ---------- */
+  .hero { padding-block: clamp(3rem, 6vw, 5.5rem) clamp(2.5rem, 5vw, 4rem); }
+  .hero__grid { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
+  @media (min-width: 940px) { .hero__grid { grid-template-columns: 1.15fr .85fr; align-items: end; } }
+
+  .hero h1 { font-size: clamp(2.4rem, 1.4rem + 4.4vw, 4.5rem); font-weight: 800; letter-spacing: -.035em; }
+  .hero h1 em { font-style: normal; color: var(--orange); }
+  .hero__lede { margin-top: 1.5rem; color: var(--ink-soft); max-width: 54ch; font-size: 1.12em; }
+  .hero__cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+  .hero__meta { font-family: var(--f-mono); font-size: .78rem; color: var(--ink-soft); margin-top: 1.5rem; }
+
+  .frame {
+    border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+    background: var(--paper-3); box-shadow: var(--shadow);
+  }
+  .frame__bar {
+    display: flex; align-items: center; gap: .4rem;
+    padding: .55rem .7rem; border-bottom: 1px solid var(--line);
+    background: color-mix(in srgb, var(--paper-3) 70%, var(--paper));
+  }
+  .frame__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+  .frame__url {
+    margin-left: .5rem; font-family: var(--f-mono); font-size: .7rem; color: var(--ink-soft);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .frame__body { padding: 1.25rem; display: grid; gap: .7rem; }
+  .frame__h { height: 12px; border-radius: 2px; background: var(--forest); opacity: .9; width: 62%; }
+  .frame__l { height: 8px; border-radius: 2px; background: var(--ink); opacity: .22; }
+  .frame__l.s { width: 84%; } .frame__l.m { width: 70%; }
+  .frame__row { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin-top: .4rem; }
+  .frame__tile { height: 42px; border-radius: 3px; background: var(--forest); opacity: .3; }
+  .frame__tile:nth-child(2) { background: var(--amber); opacity: .55; }
+  .frame__btn { margin-top: .5rem; width: 104px; height: 26px; border-radius: 2px; background: var(--orange); }
+
+  /* ---------- positioning strip ---------- */
+  .strip { border-block: 1px solid var(--line); background: var(--paper-2); }
+  .strip__in { display: grid; gap: 1.75rem; padding-block: clamp(2rem, 3.5vw, 2.75rem); }
+  @media (min-width: 760px) { .strip__in { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
+  .strip h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: .4rem; letter-spacing: -.01em; }
+  .strip p { color: var(--ink-soft); font-size: .95rem; }
+
+  /* ---------- packages ---------- */
+  .tiers { display: grid; gap: 1.25rem; align-items: start; }
+  @media (min-width: 900px) { .tiers { grid-template-columns: repeat(3, 1fr); } }
+
+  .tier {
+    display: flex; flex-direction: column; gap: 1.1rem;
+    padding: 1.6rem 1.5rem 1.75rem;
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--paper);
+  }
+  .tier--lead { border-color: var(--orange); box-shadow: var(--shadow); }
+  .tier__top { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; }
+  .tier h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.02em; }
+  .tier__flag {
+    font-family: var(--f-mono); font-size: .64rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--orange-ink); background: var(--orange); padding: .2rem .45rem; border-radius: 2px;
+  }
+  .tier__price {
+    font-family: var(--f-display); font-weight: 800; font-size: 2.05rem;
+    letter-spacing: -.03em; font-variant-numeric: tabular-nums; line-height: 1.1;
+  }
+  .tier__usd { font-family: var(--f-mono); font-size: .78rem; color: var(--ink-soft); margin-top: .3rem; }
+  .tier__for { color: var(--ink-soft); font-size: .95rem; }
+  .tier ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; font-size: .95rem; }
+  .tier li { display: grid; grid-template-columns: 1.1rem 1fr; gap: .5rem; }
+  .tier li::before { content: "—"; color: var(--orange); font-family: var(--f-mono); }
+  .tier .btn { margin-top: auto; }
+
+  .notes {
+    margin-top: 1.5rem; display: grid; gap: .9rem;
+    padding: 1.15rem 1.25rem; border: 1px dashed var(--line); border-radius: var(--radius);
+    font-size: .95rem; color: var(--ink-soft);
+  }
+  .notes strong { color: var(--ink); font-family: var(--f-display); font-weight: 700; }
+
+  /* ---------- process ---------- */
+  .steps { display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .step {
+    display: grid; gap: .35rem 1.5rem; padding-block: 1.4rem;
+    border-bottom: 1px solid var(--line); align-items: baseline;
+  }
+  @media (min-width: 760px) { .step { grid-template-columns: 4.5rem 15rem 1fr; } }
+  .step__n { font-family: var(--f-mono); font-size: .8rem; color: var(--orange); }
+  .step h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: -.015em; }
+  .step p { color: var(--ink-soft); font-size: .96rem; max-width: 52ch; }
+
+  /* ---------- work ---------- */
+  .work { display: grid; gap: 1.25rem; }
+  @media (min-width: 820px) { .work { grid-template-columns: repeat(3, 1fr); } }
+  .work__item {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; background: var(--paper-2); display: flex; flex-direction: column;
+  }
+  .work__thumb {
+    aspect-ratio: 16 / 10; max-width: 100%;
+    display: grid; place-items: center; padding: 1rem; text-align: center;
+    background:
+      repeating-linear-gradient(135deg, var(--line-soft) 0 1px, transparent 1px 11px),
+      var(--paper-3);
+    border-bottom: 1px solid var(--line);
+  }
+  .work__thumb span { font-family: var(--f-mono); font-size: .72rem; color: var(--ink-soft); }
+  .work__body { padding: 1.05rem 1.15rem 1.3rem; display: grid; gap: .3rem; }
+  .work__body h3 { font-size: 1.05rem; font-weight: 700; }
+  .work__body p { font-size: .92rem; color: var(--ink-soft); }
+
+  /* ---------- faq ---------- */
+  .faq { display: grid; gap: 0; border-top: 1px solid var(--line); max-width: 78ch; }
+  .faq details { border-bottom: 1px solid var(--line); padding-block: 1.05rem; }
+  .faq summary {
+    cursor: pointer; list-style: none;
+    font-family: var(--f-display); font-weight: 700; font-size: 1.05rem;
+    display: flex; justify-content: space-between; gap: 1rem; align-items: center;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-family: var(--f-mono); color: var(--orange); font-weight: 400; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq p { margin-top: .7rem; color: var(--ink-soft); max-width: var(--measure); font-size: .97rem; }
+
+  /* ---------- contact: full-bleed forest band ---------- */
+  .contact { background: var(--forest); color: #F5EFE1; }
+  .contact__grid { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
+  @media (min-width: 900px) { .contact__grid { grid-template-columns: .9fr 1.1fr; } }
+  .contact .label { color: var(--amber); }
+  .contact h2 {
+    font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.9rem); font-weight: 700;
+    letter-spacing: -.02em; margin-top: .9rem; color: #F5EFE1;
+  }
+  .contact p { color: #CFD8CB; }
+  .contact .lede { margin-top: 1rem; max-width: 46ch; }
+
+  .direct { display: grid; gap: .1rem; margin-top: 1.75rem; }
+  .direct a, .direct div {
+    display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
+    text-decoration: none; padding-block: .7rem;
+    border-bottom: 1px solid rgba(245, 239, 225, .2);
+    font-family: var(--f-mono); font-size: .86rem;
+  }
+  .direct span:first-child { color: var(--amber); }
+  .direct a:hover span:last-child { color: #FFFFFF; text-decoration: underline; }
+
+  form { display: grid; gap: .9rem; }
+  .field { display: grid; gap: .35rem; }
+  .field label {
+    font-family: var(--f-mono); font-size: .72rem; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--amber);
+  }
+  .field input, .field textarea, .field select {
+    font: inherit; font-size: .98rem; width: 100%;
+    color: #F5EFE1; background: rgba(245, 239, 225, .07);
+    border: 1px solid rgba(245, 239, 225, .26);
+    border-radius: var(--radius); padding: .7rem .8rem;
+  }
+  .field select option { color: #1A2A20; }
+  .field textarea { min-height: 118px; resize: vertical; }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(245, 239, 225, .45); }
+
+  /* ---------- footer ---------- */
+  footer { padding-block: 2.5rem; border-top: 1px solid var(--line); background: var(--paper-2); }
+  .foot__in {
+    display: flex; flex-wrap: wrap; gap: .75rem 2rem; align-items: center;
+    font-family: var(--f-mono); font-size: .76rem; color: var(--ink-soft);
+  }
+  .foot__in a { text-decoration: none; }
+  .foot__in a:hover { color: var(--orange); }
+  .foot__in .spacer { margin-left: auto; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="wrap mast__in">
+    <a class="mark" href="#top">
+      <span class="mark__glyph">B</span>
+      <span class="mark__name">Baywork Studio</span>
+    </a>
+    <nav>
+      <a href="#packages">Pricing</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn--primary" href="#contact">Get a quote</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero wrap">
+    <div class="hero__grid">
+      <div>
+        <p class="label">Small websites, small budgets, worldwide</p>
+        <h1>A real website, under a thousand rand. <em>Here is the whole price list.</em></h1>
+        <p class="hero__lede">
+          I build fast, hand-coded sites for small businesses and solo operators — from R950.
+          One person doing the work, so there is no agency margin baked into the quote.
+          Based in South Africa, working with clients anywhere.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#contact">Get a free preview of your site</a>
+          <a class="btn btn--ghost" href="#packages">See the pricing</a>
+        </div>
+        <p class="hero__meta">Free preview first · You only pay if you like it · Live in 5–10 days</p>
+      </div>
+
+      <div class="frame" aria-hidden="true">
+        <div class="frame__bar">
+          <span class="frame__dot"></span><span class="frame__dot"></span><span class="frame__dot"></span>
+          <span class="frame__url">yourbusiness.com</span>
+        </div>
+        <div class="frame__body">
+          <div class="frame__h"></div>
+          <div class="frame__l s"></div>
+          <div class="frame__l m"></div>
+          <div class="frame__row">
+            <div class="frame__tile"></div><div class="frame__tile"></div><div class="frame__tile"></div>
+          </div>
+          <div class="frame__btn"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="wrap strip__in">
+      <div>
+        <h3>One person, start to finish</h3>
+        <p>You deal with the person writing the code. No account manager, no handovers, no agency overhead in the price.</p>
+      </div>
+      <div>
+        <h3>Built to load on a bad connection</h3>
+        <p>Hand-coded, no bloated page-builder. Most of your customers open your site on a phone, on data. It must be quick.</p>
+      </div>
+      <div>
+        <h3>Any timezone, mostly by email</h3>
+        <p>Email is how I work best — clear, written, on the record. Teams or Google Meet when a call is genuinely faster.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="packages" class="wrap">
+    <div class="sec-head">
+      <p class="label">Pricing</p>
+      <h2>Three prices, published up front</h2>
+      <p>All prices in South African rand. International clients are invoiced the same amount converted to their own currency on the day. Excludes your domain (about R220 a year) and any paid third-party service.</p>
+    </div>
+
+    <div class="tiers">
+      <article class="tier">
+        <div class="tier__top"><h3>Starter</h3></div>
+        <div>
+          <p class="tier__price">R950</p>
+          <p class="tier__usd">once-off · ≈ $50 USD</p>
+        </div>
+        <p class="tier__for">A one-page site for a trade, freelancer or service business that just needs to exist and be contactable.</p>
+        <ul>
+          <li>One page: services, gallery, hours, contact</li>
+          <li>Click-to-call, WhatsApp and email buttons</li>
+          <li>Map embed and Google Business setup</li>
+          <li>Mobile-first, loads in under two seconds</li>
+          <li>Contact form straight to your inbox</li>
+        </ul>
+        <a class="btn btn--forest" href="#contact">Start with Starter</a>
+      </article>
+
+      <article class="tier tier--lead">
+        <div class="tier__top"><h3>Standard</h3><span class="tier__flag">Most asked for</span></div>
+        <div>
+          <p class="tier__price">R2 450</p>
+          <p class="tier__usd">once-off · ≈ $130 USD</p>
+        </div>
+        <p class="tier__for">For anyone whose day is a diary — salons, guesthouses, tutors, coaches, consultants.</p>
+        <ul>
+          <li>Everything in Starter, across 4–6 pages</li>
+          <li>Online booking with calendar sync</li>
+          <li>Automatic confirmation and reminder emails</li>
+          <li>Menu, price list or service catalogue</li>
+          <li>Basic SEO so you rank for what you sell</li>
+        </ul>
+        <a class="btn btn--primary" href="#contact">Start with Standard</a>
+      </article>
+
+      <article class="tier">
+        <div class="tier__top"><h3>Store &amp; custom</h3></div>
+        <div>
+          <p class="tier__price">From R4 950</p>
+          <p class="tier__usd">once-off · ≈ from $265 USD</p>
+        </div>
+        <p class="tier__for">For selling online, or when you need software rather than pages.</p>
+        <ul>
+          <li>Online store with a payment gateway</li>
+          <li>Customer accounts and order history</li>
+          <li>Integrations with tools you already use</li>
+          <li>Custom APIs, dashboards and automation</li>
+          <li>Scoped and quoted per project</li>
+        </ul>
+        <a class="btn btn--forest" href="#contact">Discuss a custom build</a>
+      </article>
+    </div>
+
+    <div class="notes">
+      <p><strong>Care plan — R120 a month.</strong>
+      Hosting, SSL certificate, weekly backups, security updates, uptime monitoring, and up to two content changes a month. Cancel any time; the domain, the site and the code stay yours.</p>
+      <p><strong>Payment.</strong>
+      Half up front, half when the site goes live — R475 to start on a Starter build. South African clients pay by EFT; international clients by Wise, PayPal or card. Invoiced in your currency.</p>
+    </div>
+  </section>
+
+  <section id="process" class="wrap">
+    <div class="sec-head">
+      <p class="label">Process</p>
+      <h2>What actually happens, in order</h2>
+      <p>Four steps, mostly over email. You see real work before you commit money.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <p class="step__n">Step 01</p>
+        <h3>A few emails, or one short call</h3>
+        <p>What you sell, who buys it, and what the site must make happen — a call, a booking, an order. Email suits me best; Teams or Google Meet if you would rather talk it through.</p>
+      </div>
+      <div class="step">
+        <p class="step__n">Step 02</p>
+        <h3>A free preview, built for real</h3>
+        <p>I build the homepage with your actual business on it and email you a live link. Not a template screenshot — the real thing, on a real address. No cost, no obligation.</p>
+      </div>
+      <div class="step">
+        <p class="step__n">Step 03</p>
+        <h3>Two rounds of changes</h3>
+        <p>You reply with what you want different. I change it. We do that twice, then the deposit is due and the rest of the pages get built.</p>
+      </div>
+      <div class="step">
+        <p class="step__n">Step 04</p>
+        <h3>Live, and looked after</h3>
+        <p>Domain pointed, SSL on, analytics and search console connected, site submitted to Google. From there the care plan keeps it patched and backed up.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="wrap">
+    <div class="sec-head">
+      <p class="label">Work</p>
+      <h2>Recent builds</h2>
+      <p>Replace these three slots with real client work as it lands — a screenshot, the client's name and country, and the one number that improved.</p>
+    </div>
+
+    <div class="work">
+      <article class="work__item">
+        <div class="work__thumb"><span>screenshot slot 01</span></div>
+        <div class="work__body">
+          <h3>Client name</h3>
+          <p>Package · what it does · the result in one line.</p>
+        </div>
+      </article>
+      <article class="work__item">
+        <div class="work__thumb"><span>screenshot slot 02</span></div>
+        <div class="work__body">
+          <h3>Client name</h3>
+          <p>Package · what it does · the result in one line.</p>
+        </div>
+      </article>
+      <article class="work__item">
+        <div class="work__thumb"><span>screenshot slot 03</span></div>
+        <div class="work__body">
+          <h3>Client name</h3>
+          <p>Package · what it does · the result in one line.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="faq" class="wrap">
+    <div class="sec-head">
+      <p class="label">Questions</p>
+      <h2>The things people ask first</h2>
+    </div>
+
+    <div class="faq">
+      <details open>
+        <summary>How is this so much cheaper than the agency quote?</summary>
+        <p>An agency quote carries a project manager, a designer, a developer and an office. This is one person who does all three jobs and works from home. The code is the same standard — there is just less of a business attached to it.</p>
+      </details>
+      <details>
+        <summary>Do I own the site?</summary>
+        <p>Yes. The domain is registered in your name and the site's files are yours. If you ever want to move it elsewhere, I hand over everything — no hostage-taking.</p>
+      </details>
+      <details>
+        <summary>I am not in South Africa. Does that work?</summary>
+        <p>It does. Most of the work is asynchronous and happens over email, so a time difference rarely matters. When a call is needed I will make your working hours work — Teams or Google Meet, whichever you already use. Prices are set in rand and converted to your currency at the day's rate — Wise, PayPal or card.</p>
+      </details>
+      <details>
+        <summary>What is the monthly fee actually for?</summary>
+        <p>Hosting and the SSL certificate, weekly backups, security updates, uptime monitoring, and up to two small content changes a month — new prices, new photos, changed hours. Skip it if you would rather host it yourself; the once-off build price does not change.</p>
+      </details>
+      <details>
+        <summary>How long does it take?</summary>
+        <p>Starter is usually live within a week of the deposit. Standard takes about two weeks, mostly waiting on photos and copy from you. Store and custom builds are quoted with a timeline.</p>
+      </details>
+      <details>
+        <summary>I do not have photos or written content.</summary>
+        <p>Most people do not. I write the first draft of the copy from your answers and you correct it. For photos, phone photos taken in good light are usually fine, and I will tell you exactly what to shoot.</p>
+      </details>
+      <details>
+        <summary>Can you fix or take over the site I already have?</summary>
+        <p>Often, yes. Send me the address and I will tell you honestly whether it is worth repairing or worth rebuilding.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap contact__grid">
+      <div>
+        <p class="label">Get started</p>
+        <h2>Tell me about the business</h2>
+        <p class="lede">
+          Send the details and you will get a free homepage preview back — a real page with your
+          business on it — usually within three working days. Email is the fastest way to reach me.
+        </p>
+
+        <div class="direct">
+          <a href="mailto:avanwyk191@gmail.com">
+            <span>Email (preferred)</span><span>avanwyk191@gmail.com</span>
+          </a>
+          <div>
+            <span>Calls</span><span>Teams or Google Meet, by arrangement</span>
+          </div>
+          <div>
+            <span>Hours</span><span>SAST (UTC+2) — flexible for your timezone</span>
+          </div>
+          <div>
+            <span>Based in</span><span>South Africa · clients worldwide</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swap the action for your form endpoint (Formspree, Web3Forms, Netlify Forms). -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required placeholder="Thandi Mokoena">
+        </div>
+        <div class="field">
+          <label for="business">Business name</label>
+          <input id="business" name="business" type="text" required placeholder="Bay City Plumbing">
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@yourbusiness.com">
+        </div>
+        <div class="field">
+          <label for="country">Country / timezone</label>
+          <input id="country" name="country" type="text" placeholder="South Africa · UTC+2">
+        </div>
+        <div class="field">
+          <label for="package">Package you have in mind</label>
+          <select id="package" name="package">
+            <option>Not sure yet — advise me</option>
+            <option>Starter — R950</option>
+            <option>Standard — R2 450</option>
+            <option>Store &amp; custom — from R4 950</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">What does the business do?</label>
+          <textarea id="message" name="message" placeholder="Two or three lines is plenty. Existing site or social page? Paste the link."></textarea>
+        </div>
+        <button class="btn btn--primary" type="submit">Send and get my free preview</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot__in">
+    <span>Baywork Studio · South Africa · working worldwide</span>
+    <span class="spacer"></span>
+    <a href="#packages">Pricing</a>
+    <a href="#process">Process</a>
+    <a href="mailto:avanwyk191@gmail.com">Email</a>
+  </div>
+</footer>
+</body>
+</html>
