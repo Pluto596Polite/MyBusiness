@@ -1,4 +1,4 @@
-# MyBusiness
+# Frontier Digital
 
 Marketing site for my web-design business — hand-coded static HTML, no build step.
 
