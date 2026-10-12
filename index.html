@@ -6,9 +6,9 @@
 <title>Frontier Digital</title>
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="description" content="Frontier Digital — websites, web apps and phone apps for small businesses, built by one person in Gqeberha. Static sites from R500. Free preview before you pay.">
+<meta name="description" content="Frontier Digital — websites, web apps and phone apps for small businesses — carefully built, honestly priced, made to fit what you need. Static sites from R600. Free preview before you pay.">
 <meta property="og:title" content="Frontier Digital">
-<meta property="og:description" content="Websites and apps for small businesses, built by one person. Static sites from R500. Free preview before you pay.">
+<meta property="og:description" content="Websites and apps for small businesses — quality work, honest prices, built around your requirements. Static sites from R600. Free preview before you pay.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -182,6 +182,13 @@
     float: left; font-family: var(--f-display); font-weight: 800; font-size: 3.6em; line-height: .82; margin: .06em .1em 0 0;
   }
   .sig { font-family: var(--f-display); font-weight: 800; font-size: 1.4rem; letter-spacing: -.02em; transform: rotate(-3deg); display: inline-block; margin-top: .4rem; }
+  .values { display: grid; gap: 1rem; }
+  @media (min-width: 560px) { .values { grid-template-columns: 1fr 1fr; } }
+  .value { border-top: 2px solid var(--ink); padding-top: .9rem; display: grid; gap: .4rem; }
+  .value__n { font-family: var(--f-mono); font-size: .72rem; color: var(--ink-soft); }
+  .value h3 { font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; }
+  .value p { color: var(--ink-soft); font-size: .95rem; }
+  .rules--wide { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
   .rules { display: grid; gap: 1.25rem; }
   @media (min-width: 560px) { .rules { grid-template-columns: 1fr 1fr; } }
   .rule { border: 1px solid var(--ink); padding: 1.25rem; background: var(--paper); box-shadow: var(--hard); }
@@ -314,7 +321,7 @@
       <span class="mark__name">Frontier Digital</span>
     </a>
     <nav aria-label="Main">
-      <a href="#about">About</a>
+      <a href="#about">Values</a>
       <a href="#work">Work</a>
       <a href="#pricing">Pricing</a>
       <a href="#support">Computer help</a>
@@ -329,18 +336,18 @@
   <section class="hero wrap">
     <div class="hero__grid">
       <div>
-        <p class="hello"><span class="hello__dot" aria-hidden="true"><span class="wave">✋</span></span>Hi, I'm Adriaan — this is my one-person studio.</p>
-        <h1>Websites &amp; apps for small businesses, <em>built by one person.</em></h1>
+        <p class="hello"><span class="hello__dot" aria-hidden="true">✓</span>Websites &amp; apps for small businesses</p>
+        <h1>Built with care. <em>Built to fit.</em></h1>
         <p class="hero__lede">
-          No account managers, no "let me check with the dev team". You email me, <strong>I write the code</strong>,
-          and you get a site that loads fast on a phone with half a bar of signal. Nothing on the menu costs more than R2 000 to build.
-          Based in Gqeberha, building for clients anywhere.
+          A website should do exactly what your business needs — no more, no less — and do it well.
+          Frontier Digital listens first, builds to your requirements, and <strong>isn't finished until you're happy with it.</strong>
+          Every package under R3 000. Based in Gqeberha, building for clients anywhere.
         </p>
         <div class="hero__cta">
           <a class="btn btn--solid" href="#contact">Get a free preview <span class="arr" aria-hidden="true">→</span></a>
           <a class="btn btn--ghost" href="#work">See live examples</a>
         </div>
-        <p class="hero__meta">Free preview first · Pay only if you like it · Every price published below</p>
+        <p class="hero__meta">Free preview first · Pay only if you're happy · Every price published below</p>
       </div>
 
       <div class="hero__art" aria-hidden="true">
@@ -378,35 +385,42 @@
   <section id="about" class="wrap">
     <div class="about">
       <div class="reveal">
-        <p class="label"><b>01</b> / The person behind it</p>
-        <h2>Small business, meet <span class="scribble">small business.</span></h2>
+        <p class="label"><b>01</b> / How the work gets done</p>
+        <h2>Small details, <span class="scribble">done faithfully.</span></h2>
         <div class="about__note">
-          <p>I'm a developer in Gqeberha, and Frontier Digital is me — not a stock photo of a team that doesn't exist. I started it because I kept seeing great local businesses whose only web presence was an old Facebook page and a phone number that rang through to voicemail.</p>
-          <p>Agencies quote five figures for a brochure site. My most expensive package is R2 000. Most of the businesses I want to help don't have that lying around, and honestly don't need it. They need a fast, honest page that gets the phone to ring. That I can build properly, for a price that makes sense.</p>
-          <p class="sig">— Adriaan</p>
+          <p>Every business that gets in touch is trusting Frontier Digital with something that matters to them — their name, their customers, their hard-earned money. That trust deserves careful work, an honest price and a promise that is kept.</p>
+          <p>So each project starts by listening: what you sell, who you serve, what the site must make happen. Then it is built to that — properly, tested on real phones, and checked against your brief before it is handed over. If it doesn't do what was agreed, it isn't done.</p>
         </div>
       </div>
-      <div class="rules reveal">
-        <div class="rule rule--yes">
-          <h3>What you can count on</h3>
-          <ul>
-            <li>A real, working preview before you pay a cent</li>
-            <li>Replies from me, usually the same working day</li>
-            <li>Hand-written code you own outright</li>
-            <li>Plain-English quotes with every cost listed</li>
-            <li>Being told when you <em>don't</em> need something</li>
-          </ul>
-        </div>
-        <div class="rule rule--no">
-          <h3>What I won't do</h3>
-          <ul>
-            <li>Lock you into a contract or hold your domain hostage</li>
-            <li>Sell you an app when a website will do</li>
-            <li>Hide fees in the fine print</li>
-            <li>Pretend demo sites are paying clients</li>
-            <li>Use a bloated page-builder and call it custom</li>
-          </ul>
-        </div>
+      <div class="values reveal">
+        <div class="value"><span class="value__n">01</span><h3>Quality</h3><p>Excellent work, not just finished work. Hand-written, fast, accessible and tested before you ever see it.</p></div>
+        <div class="value"><span class="value__n">02</span><h3>Your requirements</h3><p>Listen first, build second. Your brief is the checklist — every item is met and signed off together.</p></div>
+        <div class="value"><span class="value__n">03</span><h3>Your satisfaction</h3><p>Two rounds of changes included, and real care until you're happy. Your success is the measure, not the invoice.</p></div>
+        <div class="value"><span class="value__n">04</span><h3>Integrity</h3><p>Honest prices, published up front. A yes means yes, deadlines are kept, and you'll hear the truth even when it costs a sale.</p></div>
+      </div>
+    </div>
+
+    <div class="rules rules--wide reveal">
+      <div class="rule rule--yes">
+        <h3>What every client can count on</h3>
+        <ul>
+          <li>A real, working preview before you pay a cent</li>
+          <li>Clear replies, usually the same working day</li>
+          <li>Code and domain that belong to you outright</li>
+          <li>Plain-English quotes with every cost listed</li>
+          <li>Being told when you <em>don't</em> need something</li>
+          <li>The same care for a R600 site as for a bigger build</li>
+        </ul>
+      </div>
+      <div class="rule rule--no">
+        <h3>What you'll never get here</h3>
+        <ul>
+          <li>Lock-in contracts or a domain held hostage</li>
+          <li>An app sold to you when a website will do</li>
+          <li>Hidden fees in the fine print</li>
+          <li>Demo sites passed off as paying clients</li>
+          <li>Rushed work dressed up as "done"</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -485,7 +499,7 @@
   <section id="pricing" class="wrap">
     <div class="sec-head reveal">
       <p class="label"><b>03</b> / Pricing</p>
-      <h2>Prices I'm happy to publish</h2>
+      <h2>Fair prices, published up front</h2>
       <p>Four kinds of build, smallest to biggest. Build prices are fixed starting points in rand. Running costs that depend on your project — server, database, app stores — are marked <span class="tbd" title="Worked out once I know what you need, and written into your quote before you commit.">TBD in quote</span> and always written down before you commit.</p>
     </div>
 
@@ -495,12 +509,12 @@
         <h3>Static website</h3>
         <div>
           <p class="tier__from">From</p>
-          <p class="tier__price">R500</p>
-          <p class="tier__usd">once-off · ≈ $28 USD</p>
+          <p class="tier__price">R600</p>
+          <p class="tier__usd">once-off · ≈ $33 USD</p>
         </div>
         <p class="tier__for">Information that rarely changes: who you are, what you do, how to reach you. Fast, cheap to run, nothing to break.</p>
         <ul>
-          <li>R500 for a one-pager; up to 5 pages R900</li>
+          <li>R600 for a one-pager; up to 5 pages R1 200</li>
           <li>Click-to-call, WhatsApp, email and contact form</li>
           <li>Gallery, price list, map and Google Business setup</li>
           <li>Basic SEO and social share cards</li>
@@ -518,8 +532,8 @@
         <h3>Dynamic website</h3>
         <div>
           <p class="tier__from">From</p>
-          <p class="tier__price">R1 000</p>
-          <p class="tier__usd">once-off · ≈ $55 USD</p>
+          <p class="tier__price">R1 800</p>
+          <p class="tier__usd">once-off · ≈ $100 USD</p>
         </div>
         <p class="tier__for">A site that changes and does things: online booking, a blog you edit yourself, enquiries saved to a database.</p>
         <ul>
@@ -541,8 +555,8 @@
         <h3>Web app</h3>
         <div>
           <p class="tier__from">From</p>
-          <p class="tier__price">R1 500</p>
-          <p class="tier__usd">once-off · ≈ $85 USD</p>
+          <p class="tier__price">R2 400</p>
+          <p class="tier__usd">once-off · ≈ $133 USD</p>
         </div>
         <p class="tier__for">Software that runs in the browser: customer logins, dashboards, online ordering, internal tools that replace a spreadsheet.</p>
         <ul>
@@ -564,12 +578,12 @@
         <h3>Android or iOS app</h3>
         <div>
           <p class="tier__from">From</p>
-          <p class="tier__price">R2 000</p>
-          <p class="tier__usd">per platform · ≈ $110 USD</p>
+          <p class="tier__price">R2 900</p>
+          <p class="tier__usd">per platform · ≈ $160 USD</p>
         </div>
         <p class="tier__for">A real app in the Play Store or App Store: loyalty cards, bookings, ordering, push notifications.</p>
         <ul>
-          <li>R2 000 per platform — Android or iOS</li>
+          <li>R2 900 per platform — Android or iOS</li>
           <li>Store listing, screenshots and submission handled</li>
           <li>Push notifications and offline basics</li>
           <li>Honest advice first — a web app is often enough</li>
@@ -670,7 +684,7 @@
       <div class="step reveal"><p class="step__n">01</p><h3>A few emails, or one short call</h3><p>What you sell, who buys it, and what the site or app must make happen — a call, a booking, an order. Email suits me best; Teams or Google Meet if you'd rather talk.</p></div>
       <div class="step reveal"><p class="step__n">02</p><h3>A free preview, built for real</h3><p>I build the homepage (or the first screen of the app) with your actual business on it and send you a live link. No cost, no obligation.</p></div>
       <div class="step reveal"><p class="step__n">03</p><h3>Two rounds of changes</h3><p>You tell me what to change. I change it. Twice. Then the deposit is due and the rest gets built.</p></div>
-      <div class="step reveal"><p class="step__n">04</p><h3>Live, and looked after</h3><p>Domain pointed, SSL on, analytics connected, submitted to Google (or the app stores). From there the care plan keeps it patched and backed up.</p></div>
+      <div class="step reveal"><p class="step__n">04</p><h3>Checked, signed off, and looked after</h3><p>Every item on your brief is checked off together before launch. Then the domain is pointed, SSL on, analytics connected, submitted to Google (or the app stores). From there the care plan keeps it patched and backed up.</p></div>
     </div>
   </section>
 
@@ -681,8 +695,12 @@
     </div>
     <div class="faq">
       <details open>
-        <summary>How is this so much cheaper than the agency quote?</summary>
-        <p>An agency quote carries a project manager, a designer, a developer and an office. This is one person doing all three jobs from home. The code is the same standard — there's just less business attached to it.</p>
+        <summary>How can quality work cost this little?</summary>
+        <p>No office, no sales team and no layers of management in the price. Proven building blocks are reused and refined from project to project, so time goes into what is unique about your business — not into reinventing the basics. The standard of the code doesn't drop; the overhead does.</p>
+      </details>
+      <details>
+        <summary>What if I'm not happy with it?</summary>
+        <p>Then it isn't finished. Two rounds of changes are included, and the work is checked against your brief before handover. You see a free preview before paying anything, and if it isn't what you wanted at that stage, you walk away owing nothing.</p>
       </details>
       <details>
         <summary>Static, dynamic, web app or phone app — which do I need?</summary>
@@ -697,8 +715,8 @@
         <p>No, and I won't pretend otherwise. Crescendo Music Academy, Cape Meridian Tours and Ivory Lane Nail Bar are demonstration builds for invented companies, made so you can judge the work before hiring me. Everything on them is real and working — only the businesses are made up.</p>
       </details>
       <details>
-        <summary>You're one person. What if you're unavailable?</summary>
-        <p>Everything I build is documented and handed over: code, logins in your name, and notes on how it fits together. Any competent developer could pick it up. You're never dependent on me to keep your site alive.</p>
+        <summary>What happens after the site is live?</summary>
+        <p>You're looked after. The care plan covers updates, backups and small changes, and questions get answered. Everything is also documented and handed over — code, logins in your name, and notes on how it fits together — so you are never stuck or dependent on anyone to keep your site alive.</p>
       </details>
       <details>
         <summary>Do I own the site or app?</summary>
@@ -751,10 +769,10 @@
           <label for="package">What do you have in mind?</label>
           <select id="package" name="package">
             <option>Not sure yet — advise me</option>
-            <option>Static website — from R500</option>
-            <option>Dynamic website — from R1 000</option>
-            <option>Web app — from R1 500</option>
-            <option>Android or iOS app — from R2 000</option>
+            <option>Static website — from R600</option>
+            <option>Dynamic website — from R1 800</option>
+            <option>Web app — from R2 400</option>
+            <option>Android or iOS app — from R2 900</option>
             <option>Remote computer help</option>
           </select>
         </div>
