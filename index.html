@@ -6,22 +6,16 @@
 <title>Frontier Digital</title>
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="description" content="Frontier Digital — hand-coded websites for small businesses, from R800 plus R400 a month hosted, or R500 once-off if you host it yourself. Three live examples you can open. Free preview before you pay.">
+<meta name="description" content="Frontier Digital — websites, web apps and phone apps for small businesses, built by one person in Gqeberha. Static sites from R800. Free preview before you pay.">
 <meta property="og:title" content="Frontier Digital">
-<meta property="og:description" content="Hand-coded websites for small businesses, from R500. Free preview before you pay.">
+<meta property="og:description" content="Websites and apps for small businesses, built by one person. Static sites from R800. Free preview before you pay.">
 <meta property="og:type" content="website">
-<style>
-  html { color-scheme: light; }
-  body { margin: 0; }
-  img { max-width: 100%; }
-  [hidden] { display: none !important; }
-</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 
 <style>
-  /* ---------- tokens: single monochrome world, white ground, no dark variant ---------- */
+  /* ---------- tokens: single monochrome world, white ground ---------- */
   :root {
     --paper:     #FFFFFF;
     --paper-2:   #F2F2F0;
@@ -33,6 +27,7 @@
     --line:      rgba(11, 11, 11, .24);
     --line-soft: rgba(11, 11, 11, .10);
     --shadow:    0 1px 0 rgba(11,11,11,.05), 0 20px 44px -30px rgba(11,11,11,.55);
+    --hard:      6px 6px 0 var(--ink); /* offset "sticker" shadow — personality without colour */
 
     --f-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
     --f-body:    "Source Serif 4", Georgia, "Times New Roman", serif;
@@ -43,109 +38,114 @@
     --radius: 2px;
   }
 
-
-  /* ---------- base ---------- */
   * { box-sizing: border-box; }
-
-  html { color-scheme: light; }
-
+  html { color-scheme: light; scroll-behavior: smooth; scroll-padding-top: 70px; overflow-x: clip; }
   body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--f-body);
-    font-size: clamp(1rem, .96rem + .2vw, 1.075rem);
-    line-height: 1.62;
-    -webkit-font-smoothing: antialiased;
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--f-body); font-size: clamp(1rem, .96rem + .2vw, 1.075rem);
+    line-height: 1.62; -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
-
+  img { max-width: 100%; height: auto; }
+  [hidden] { display: none !important; }
   h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.03; margin: 0; }
   p { margin: 0; }
   a { color: inherit; }
-
   .wrap { width: 100%; max-width: 1180px; margin-inline: auto; padding-inline: var(--gutter); }
 
   .label {
     font-family: var(--f-mono); font-size: .72rem;
     letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft);
   }
+  .label b { color: var(--ink); font-weight: 500; }
 
   section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
-
   .sec-head { display: flex; flex-direction: column; gap: .9rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
   .sec-head h2 { font-size: clamp(1.8rem, 1.2rem + 2.4vw, 3rem); font-weight: 800; letter-spacing: -.03em; }
   .sec-head p { color: var(--ink-soft); max-width: var(--measure); }
 
-  /* ---------- buttons: contrast, not colour ---------- */
+  /* hand-drawn underline (SVG mask keeps it monochrome via currentColor) */
+  .scribble { position: relative; white-space: nowrap; }
+  .scribble::after {
+    content: ""; position: absolute; left: -2%; right: -2%; bottom: -.12em; height: .32em;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8c30-6 60-7 96-4s70 4 100-2' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8c30-6 60-7 96-4s70 4 100-2' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  }
+
+  /* ---------- buttons ---------- */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
     font-family: var(--f-display); font-weight: 700; font-size: .95rem;
     padding: .78rem 1.3rem; border-radius: var(--radius);
     text-decoration: none; border: 1px solid var(--ink); cursor: pointer;
-    transition: background-color .15s ease, color .15s ease, transform .15s ease;
+    transition: background-color .15s ease, color .15s ease, transform .15s ease, box-shadow .15s ease;
   }
-  .btn:hover { transform: translateY(-1px); }
+  .btn .arr { transition: transform .2s ease; }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--ink); }
+  .btn:hover .arr { transform: translateX(3px); }
   .btn--solid { background: var(--invert-bg); color: var(--invert-fg); }
-  .btn--solid:hover { background: transparent; color: var(--ink); }
-  .btn--ghost { background: transparent; color: var(--ink); }
-  .btn--ghost:hover { background: var(--invert-bg); color: var(--invert-fg); }
+  .btn--solid:hover { background: var(--paper); color: var(--ink); }
+  .btn--ghost { background: var(--paper); color: var(--ink); }
 
-  :where(a, button, input, textarea, select):focus-visible {
-    outline: 2px solid var(--ink); outline-offset: 3px;
-  }
+  :where(a, button, input, textarea, select, summary):focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
   /* ---------- masthead ---------- */
   .mast {
     position: sticky; top: 0; z-index: 20;
     background: color-mix(in srgb, var(--paper) 92%, transparent);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
   }
   .mast__in { display: flex; align-items: center; gap: 1.5rem; padding-block: .85rem; }
   .mark { display: flex; align-items: center; gap: .65rem; text-decoration: none; margin-right: auto; }
   .mark__glyph {
-    width: 28px; height: 28px;
-    background: var(--invert-bg); color: var(--invert-fg);
+    width: 28px; height: 28px; background: var(--invert-bg); color: var(--invert-fg);
     display: grid; place-items: center;
     font-family: var(--f-display); font-weight: 800; font-size: .74rem; letter-spacing: -.02em;
+    transition: transform .3s ease;
   }
-  .mark__name {
-    font-family: var(--f-display); font-weight: 800;
-    letter-spacing: -.02em; font-size: 1.06rem;
-  }
+  .mark:hover .mark__glyph { transform: rotate(-8deg); }
+  .mark__name { font-family: var(--f-display); font-weight: 800; letter-spacing: -.02em; font-size: 1.06rem; }
   .mast nav { display: none; gap: 1.6rem; font-family: var(--f-display); font-weight: 500; font-size: .92rem; }
   .mast nav a { text-decoration: none; color: var(--ink-soft); }
   .mast nav a:hover { color: var(--ink); }
   @media (min-width: 900px) { .mast nav { display: flex; } }
+  @media (max-width: 380px) { .mast .btn { padding: .6rem .8rem; font-size: .85rem; } }
 
   /* ---------- hero ---------- */
-  .hero { padding-block: clamp(3rem, 6vw, 5.5rem) clamp(2.5rem, 5vw, 4rem); }
-  .hero__grid { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
-  @media (min-width: 940px) { .hero__grid { grid-template-columns: 1.15fr .85fr; align-items: end; } }
+  .hero { padding-block: clamp(2.75rem, 6vw, 5.5rem) clamp(2.5rem, 5vw, 4rem); }
+  .hero__grid { display: grid; gap: clamp(2.5rem, 5vw, 4rem); }
+  @media (min-width: 940px) { .hero__grid { grid-template-columns: 1.15fr .85fr; align-items: center; } }
 
-  .hero h1 { font-size: clamp(2.5rem, 1.4rem + 4.6vw, 4.7rem); font-weight: 800; letter-spacing: -.04em; }
+  .hello {
+    display: inline-flex; align-items: center; gap: .6rem; margin-bottom: 1.4rem;
+    font-family: var(--f-mono); font-size: .8rem; padding: .35rem .75rem .35rem .4rem;
+    border: 1px solid var(--ink); border-radius: 999px;
+  }
+  .hello__dot {
+    flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--ink); color: var(--paper);
+    display: grid; place-items: center; font-size: .75rem;
+  }
+  .wave { display: inline-block; transform-origin: 70% 70%; animation: wave 2.4s ease-in-out 1s 2; }
+  @keyframes wave { 0%, 60%, 100% { transform: rotate(0); } 10%, 30% { transform: rotate(14deg); } 20%, 40% { transform: rotate(-8deg); } }
+
+  .hero h1 { font-size: clamp(2.4rem, 1.3rem + 4.4vw, 4.5rem); font-weight: 800; letter-spacing: -.04em; }
   .hero h1 em {
-    font-style: normal;
-    background: var(--invert-bg); color: var(--invert-fg);
+    font-style: normal; background: var(--invert-bg); color: var(--invert-fg);
     padding: 0 .18em; box-decoration-break: clone; -webkit-box-decoration-break: clone;
   }
   .hero__lede { margin-top: 1.5rem; color: var(--ink-soft); max-width: 54ch; font-size: 1.12em; }
+  .hero__lede strong { color: var(--ink); font-weight: 600; }
   .hero__cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
   .hero__meta { font-family: var(--f-mono); font-size: .78rem; color: var(--ink-soft); margin-top: 1.5rem; }
 
-  .frame {
-    border: 1px solid var(--ink); border-radius: var(--radius); overflow: hidden;
-    background: var(--paper-2); box-shadow: var(--shadow);
-  }
-  .frame__bar {
-    display: flex; align-items: center; gap: .4rem;
-    padding: .55rem .7rem; border-bottom: 1px solid var(--line);
-    background: var(--paper-3);
-  }
+  /* browser frame with a rotating stamp pinned to it */
+  .hero__art { position: relative; padding: 1.75rem 1.75rem 0 0; }
+  .frame { border: 1px solid var(--ink); border-radius: var(--radius); overflow: hidden; background: var(--paper-2); box-shadow: var(--hard); }
+  .frame__bar { display: flex; align-items: center; gap: .4rem; padding: .55rem .7rem; border-bottom: 1px solid var(--line); background: var(--paper-3); }
   .frame__dot { width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--line); }
-  .frame__url {
-    margin-left: .5rem; font-family: var(--f-mono); font-size: .7rem; color: var(--ink-soft);
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  }
+  .frame__url { margin-left: .5rem; font-family: var(--f-mono); font-size: .7rem; color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .frame__url .caret { display: inline-block; width: 1px; height: .9em; background: var(--ink); vertical-align: -1px; margin-left: 1px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
   .frame__body { padding: 1.25rem; display: grid; gap: .7rem; }
   .frame__h { height: 12px; background: var(--ink); width: 62%; }
   .frame__l { height: 8px; background: var(--ink); opacity: .28; }
@@ -155,162 +155,154 @@
   .frame__tile:nth-child(2) { background: var(--ink); opacity: .12; }
   .frame__btn { margin-top: .5rem; width: 104px; height: 26px; background: var(--ink); }
 
-  /* ---------- positioning strip ---------- */
-  .strip { border-block: 1px solid var(--line); background: var(--paper-2); }
-  .strip__in { display: grid; gap: 1.75rem; padding-block: clamp(2rem, 3.5vw, 2.75rem); }
-  @media (min-width: 760px) { .strip__in { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
-  .strip h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: .4rem; letter-spacing: -.01em; }
-  .strip p { color: var(--ink-soft); font-size: .95rem; }
+  .stamp {
+    position: absolute; top: 0; right: 0; width: 116px; height: 116px;
+    border-radius: 50%; background: var(--paper); border: 1px solid var(--ink);
+    display: grid; place-items: center;
+  }
+  .stamp svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: spin 18s linear infinite; }
+  .stamp text { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 2.4px; text-transform: uppercase; fill: var(--ink); }
+  .stamp__mid { font-family: var(--f-display); font-weight: 800; font-size: 1.05rem; line-height: 1; text-align: center; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ---------- marquee ---------- */
+  .ticker { border-block: 1px solid var(--ink); background: var(--invert-bg); color: var(--invert-fg); overflow: hidden; }
+  .ticker__track { display: flex; width: max-content; animation: slide 40s linear infinite; }
+  .ticker__track span { font-family: var(--f-display); font-weight: 700; font-size: 1.1rem; padding: .85rem 1.1rem; white-space: nowrap; }
+  .ticker__track span::after { content: "✶"; margin-left: 2.2rem; font-weight: 400; opacity: .55; }
+  .ticker:hover .ticker__track { animation-play-state: paused; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* ---------- about ---------- */
+  .about { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
+  @media (min-width: 900px) { .about { grid-template-columns: 1fr 1fr; align-items: start; } }
+  .about h2 { font-size: clamp(1.8rem, 1.2rem + 2.4vw, 3rem); font-weight: 800; letter-spacing: -.03em; margin-block: .9rem 1.5rem; }
+  .about__note { display: grid; gap: 1rem; font-size: 1.08rem; }
+  .about__note p:first-child::first-letter {
+    float: left; font-family: var(--f-display); font-weight: 800; font-size: 3.6em; line-height: .82; margin: .06em .1em 0 0;
+  }
+  .sig { font-family: var(--f-display); font-weight: 800; font-size: 1.4rem; letter-spacing: -.02em; transform: rotate(-3deg); display: inline-block; margin-top: .4rem; }
+  .rules { display: grid; gap: 1.25rem; }
+  @media (min-width: 560px) { .rules { grid-template-columns: 1fr 1fr; } }
+  .rule { border: 1px solid var(--ink); padding: 1.25rem; background: var(--paper); box-shadow: var(--hard); }
+  .rule--no { background: var(--paper-2); box-shadow: none; border-style: dashed; }
+  .rule h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .8rem; letter-spacing: -.01em; }
+  .rule ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; font-size: .94rem; }
+  .rule li { display: grid; grid-template-columns: 1.2rem 1fr; gap: .4rem; }
+  .rule--yes li::before { content: "✓"; font-family: var(--f-mono); }
+  .rule--no li::before { content: "✕"; font-family: var(--f-mono); color: var(--ink-soft); }
 
   /* ---------- work ---------- */
   .work { display: grid; gap: 1.5rem; }
   @media (min-width: 760px) { .work { grid-template-columns: repeat(2, 1fr); } }
-
   .case {
-    border: 1px solid var(--ink); border-radius: var(--radius);
-    background: var(--paper); display: flex; flex-direction: column;
-    overflow: hidden;
+    border: 1px solid var(--ink); border-radius: var(--radius); background: var(--paper);
+    display: flex; flex-direction: column; overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease, opacity .6s ease;
   }
-  .case__top {
-    padding: 1.15rem 1.25rem; border-bottom: 1px solid var(--line);
-    background: var(--invert-bg); color: var(--invert-fg);
-    display: flex; flex-direction: column; gap: .3rem;
-  }
-  .case__kind {
-    font-family: var(--f-mono); font-size: .68rem;
-    letter-spacing: .14em; text-transform: uppercase; opacity: .75;
-  }
+  .case.in:hover { transform: translate(-3px, -3px) rotate(-.4deg); box-shadow: var(--hard); }
+  .case__top { padding: 1.15rem 1.25rem; border-bottom: 1px solid var(--line); background: var(--invert-bg); color: var(--invert-fg); display: flex; flex-direction: column; gap: .3rem; }
+  .case__kind { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; opacity: .75; }
   .case__top h3 { font-size: 1.28rem; font-weight: 700; letter-spacing: -.02em; }
   .case__body { padding: 1.25rem; display: flex; flex-direction: column; gap: .9rem; flex: 1; }
   .case__body > p { color: var(--ink-soft); font-size: .95rem; }
   .case ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; font-size: .9rem; }
   .case li { display: grid; grid-template-columns: 1.1rem 1fr; gap: .45rem; }
   .case li::before { content: "→"; font-family: var(--f-mono); color: var(--ink-soft); }
-  .case .btn { margin-top: auto; }
+  .case .btn { margin-top: auto; align-self: flex-start; }
   .case--empty { border-style: dashed; }
+  .case--empty.in:hover { transform: none; box-shadow: none; }
   .case--empty .case__top { background: transparent; color: var(--ink); border-bottom-style: dashed; }
-
-  .disclaimer {
-    margin-top: 1.5rem; font-family: var(--f-mono); font-size: .76rem;
-    color: var(--ink-soft); border-left: 2px solid var(--line); padding-left: .9rem;
-  }
+  .disclaimer { margin-top: 1.5rem; font-family: var(--f-mono); font-size: .76rem; color: var(--ink-soft); border-left: 2px solid var(--line); padding-left: .9rem; }
 
   /* ---------- packages ---------- */
-  .tiers { display: grid; gap: 1.25rem; align-items: start; }
-  @media (min-width: 760px) { .tiers { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
-
+  .tiers { display: grid; gap: 1.25rem; align-items: stretch; }
+  @media (min-width: 680px) { .tiers { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) { .tiers--3 { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1140px) { .tiers--4 { grid-template-columns: repeat(4, 1fr); } }
   .tier {
-    display: flex; flex-direction: column; gap: 1.1rem;
-    padding: 1.6rem 1.5rem 1.75rem;
-    border: 1px solid var(--line); border-radius: var(--radius);
-    background: var(--paper);
+    display: flex; flex-direction: column; gap: 1rem; padding: 1.5rem 1.35rem 1.6rem;
+    border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper);
   }
-  .tier--lead { border-color: var(--ink); border-width: 2px; box-shadow: var(--shadow); }
+  .tier--lead { border-color: var(--ink); border-width: 2px; box-shadow: var(--hard); }
   .tier__top { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; }
+  .tier__n { font-family: var(--f-mono); font-size: .72rem; color: var(--ink-soft); }
   .tier h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.02em; }
-  .tier__flag {
-    font-family: var(--f-mono); font-size: .64rem; letter-spacing: .12em; text-transform: uppercase;
-    background: var(--invert-bg); color: var(--invert-fg); padding: .2rem .45rem;
-  }
-  .tier__price {
-    font-family: var(--f-display); font-weight: 800; font-size: 2.15rem;
-    letter-spacing: -.035em; font-variant-numeric: tabular-nums; line-height: 1.08;
-  }
-  .tier__usd { font-family: var(--f-mono); font-size: .76rem; color: var(--ink-soft); margin-top: .3rem; }
+  .tier__flag { font-family: var(--f-mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; background: var(--invert-bg); color: var(--invert-fg); padding: .2rem .45rem; white-space: nowrap; }
+  .tier__from { font-family: var(--f-mono); font-size: .68rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .14em; }
+  .tier__price { font-family: var(--f-display); font-weight: 800; font-size: 2.15rem; letter-spacing: -.035em; font-variant-numeric: tabular-nums; line-height: 1.08; }
+  .tier__usd { font-family: var(--f-mono); font-size: .74rem; color: var(--ink-soft); margin-top: .3rem; }
   .tier__for { color: var(--ink-soft); font-size: .95rem; }
-  .tier ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; font-size: .95rem; }
+  .tier ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; font-size: .93rem; }
   .tier li { display: grid; grid-template-columns: 1.1rem 1fr; gap: .5rem; }
   .tier li::before { content: "—"; color: var(--ink-soft); font-family: var(--f-mono); }
+  .running { border-top: 1px dashed var(--line); padding-top: .9rem; display: grid; gap: .4rem; font-family: var(--f-mono); font-size: .74rem; }
+  .running div { display: flex; justify-content: space-between; gap: .75rem; }
+  .running span:first-child { color: var(--ink-soft); flex: none; }
+  .running span:last-child { text-align: right; }
+  .tbd { border-bottom: 1px dotted var(--ink); cursor: help; }
   .tier .btn { margin-top: auto; }
 
-  .notes {
-    margin-top: 1.5rem; display: grid; gap: .9rem;
-    padding: 1.15rem 1.25rem; border: 1px dashed var(--line); border-radius: var(--radius);
-    font-size: .95rem; color: var(--ink-soft);
-  }
+  .notes { margin-top: 1.5rem; display: grid; gap: .9rem; padding: 1.15rem 1.25rem; border: 1px dashed var(--line); border-radius: var(--radius); font-size: .95rem; color: var(--ink-soft); }
   .notes strong { color: var(--ink); font-family: var(--f-display); font-weight: 700; }
 
   /* ---------- process ---------- */
   .steps { display: grid; gap: 0; border-top: 1px solid var(--line); }
-  .step {
-    display: grid; gap: .35rem 1.5rem; padding-block: 1.4rem;
-    border-bottom: 1px solid var(--line); align-items: baseline;
-  }
+  .step { display: grid; gap: .35rem 1.5rem; padding-block: 1.4rem; border-bottom: 1px solid var(--line); align-items: baseline; }
   @media (min-width: 760px) { .step { grid-template-columns: 4.5rem 15rem 1fr; } }
-  .step__n { font-family: var(--f-mono); font-size: .8rem; color: var(--ink-soft); }
+  .step__n { font-family: var(--f-display); font-weight: 800; font-size: 1.6rem; letter-spacing: -.03em; }
   .step h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: -.015em; }
   .step p { color: var(--ink-soft); font-size: .96rem; max-width: 52ch; }
 
   /* ---------- faq ---------- */
   .faq { display: grid; gap: 0; border-top: 1px solid var(--line); max-width: 78ch; }
   .faq details { border-bottom: 1px solid var(--line); padding-block: 1.05rem; }
-  .faq summary {
-    cursor: pointer; list-style: none;
-    font-family: var(--f-display); font-weight: 700; font-size: 1.05rem;
-    display: flex; justify-content: space-between; gap: 1rem; align-items: center;
-  }
+  .faq summary { cursor: pointer; list-style: none; font-family: var(--f-display); font-weight: 700; font-size: 1.05rem; display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
   .faq summary::-webkit-details-marker { display: none; }
   .faq summary::after { content: "+"; font-family: var(--f-mono); color: var(--ink-soft); font-weight: 400; }
   .faq details[open] summary::after { content: "–"; }
   .faq p { margin-top: .7rem; color: var(--ink-soft); max-width: var(--measure); font-size: .97rem; }
 
-  /* ---------- contact: inverted band ---------- */
+  /* ---------- contact ---------- */
   .contact { background: var(--invert-bg); color: var(--invert-fg); }
   .contact__grid { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
   @media (min-width: 900px) { .contact__grid { grid-template-columns: .9fr 1.1fr; } }
   .contact .label { color: var(--invert-fg); opacity: .6; }
-  .contact h2 {
-    font-size: clamp(1.8rem, 1.2rem + 2.4vw, 3rem); font-weight: 800;
-    letter-spacing: -.03em; margin-top: .9rem; color: var(--invert-fg);
-  }
+  .contact .label b { color: var(--invert-fg); }
+  .contact h2 { font-size: clamp(1.8rem, 1.2rem + 2.4vw, 3rem); font-weight: 800; letter-spacing: -.03em; margin-top: .9rem; color: var(--invert-fg); }
   .contact p { color: var(--invert-fg); opacity: .78; }
   .contact .lede { margin-top: 1rem; max-width: 46ch; }
-
   .direct { display: grid; gap: .1rem; margin-top: 1.75rem; }
-  .direct a, .direct div {
-    display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
-    text-decoration: none; padding-block: .7rem;
-    border-bottom: 1px solid color-mix(in srgb, var(--invert-fg) 24%, transparent);
-    font-family: var(--f-mono); font-size: .86rem;
-  }
-  .direct span:first-child { opacity: .6; }
+  .direct a, .direct div { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; text-decoration: none; padding-block: .7rem; border-bottom: 1px solid color-mix(in srgb, var(--invert-fg) 24%, transparent); font-family: var(--f-mono); font-size: .86rem; }
+  .direct span:first-child { opacity: .6; flex: none; }
+  .direct span:last-child { text-align: right; overflow-wrap: anywhere; }
   .direct a:hover span:last-child { text-decoration: underline; }
-
   form { display: grid; gap: .9rem; }
   .field { display: grid; gap: .35rem; }
-  .field label {
-    font-family: var(--f-mono); font-size: .72rem; letter-spacing: .1em;
-    text-transform: uppercase; opacity: .6;
-  }
-  .field input, .field textarea, .field select {
-    font: inherit; font-size: .98rem; width: 100%;
-    color: var(--invert-fg); background: transparent;
-    border: 1px solid color-mix(in srgb, var(--invert-fg) 34%, transparent);
-    border-radius: var(--radius); padding: .7rem .8rem;
-  }
+  .field label { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; opacity: .6; }
+  .field input, .field textarea, .field select { font: inherit; font-size: .98rem; width: 100%; color: var(--invert-fg); background: transparent; border: 1px solid color-mix(in srgb, var(--invert-fg) 34%, transparent); border-radius: var(--radius); padding: .7rem .8rem; }
   .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--invert-fg); }
   .field select option { color: #0B0B0B; background: #FFFFFF; }
   .field textarea { min-height: 118px; resize: vertical; }
-  .field input::placeholder, .field textarea::placeholder {
-    color: color-mix(in srgb, var(--invert-fg) 45%, transparent);
-  }
-  .contact .btn {
-    border-color: var(--invert-fg); background: var(--invert-fg); color: var(--invert-bg);
-  }
-  .contact .btn:hover { background: transparent; color: var(--invert-fg); }
+  .field input::placeholder, .field textarea::placeholder { color: color-mix(in srgb, var(--invert-fg) 45%, transparent); }
+  .contact .btn { border-color: var(--invert-fg); background: var(--invert-fg); color: var(--invert-bg); }
+  .contact .btn:hover { background: transparent; color: var(--invert-fg); box-shadow: 3px 3px 0 var(--invert-fg); }
 
   /* ---------- footer ---------- */
   footer { padding-block: 2.5rem; border-top: 1px solid var(--line); background: var(--paper-2); }
-  .foot__in {
-    display: flex; flex-wrap: wrap; gap: .75rem 2rem; align-items: center;
-    font-family: var(--f-mono); font-size: .76rem; color: var(--ink-soft);
-  }
+  .foot__in { display: flex; flex-wrap: wrap; gap: .75rem 2rem; align-items: center; font-family: var(--f-mono); font-size: .76rem; color: var(--ink-soft); }
   .foot__in a { text-decoration: none; }
   .foot__in a:hover { color: var(--ink); text-decoration: underline; }
   .foot__in .spacer { margin-left: auto; }
 
+  /* ---------- reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
   @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
   }
 </style>
 </head>
@@ -321,11 +313,11 @@
       <span class="mark__glyph">FD</span>
       <span class="mark__name">Frontier Digital</span>
     </a>
-    <nav>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#pricing">Pricing</a>
       <a href="#support">Computer help</a>
-      <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn--solid" href="#contact">Get a quote</a>
@@ -337,68 +329,98 @@
   <section class="hero wrap">
     <div class="hero__grid">
       <div>
-        <p class="label">Frontier Digital · Websites for small businesses</p>
-        <h1>A real website, <em>under a thousand rand.</em></h1>
+        <p class="hello"><span class="hello__dot" aria-hidden="true"><span class="wave">✋</span></span>Hi, I'm Adriaan — this is my one-person studio.</p>
+        <h1>Websites &amp; apps for small businesses, <em>built by one person.</em></h1>
         <p class="hero__lede">
-          Hand-coded sites for small businesses and solo operators — from R500. One person
-          doing the work, so there is no agency margin in the quote. Based in South Africa,
-          building for clients anywhere.
+          No account managers, no "let me check with the dev team". You email me, <strong>I write the code</strong>,
+          and you get a site that loads fast on a phone with half a bar of signal. Static sites from R800.
+          Based in Gqeberha, building for clients anywhere.
         </p>
         <div class="hero__cta">
-          <a class="btn btn--solid" href="#contact">Get a free preview of your site</a>
+          <a class="btn btn--solid" href="#contact">Get a free preview <span class="arr" aria-hidden="true">→</span></a>
           <a class="btn btn--ghost" href="#work">See live examples</a>
         </div>
-        <p class="hero__meta">Free preview first · You only pay if you like it · Live in 5–10 days</p>
+        <p class="hero__meta">Free preview first · Pay only if you like it · Every price published below</p>
       </div>
 
-      <div class="frame" aria-hidden="true">
-        <div class="frame__bar">
-          <span class="frame__dot"></span><span class="frame__dot"></span><span class="frame__dot"></span>
-          <span class="frame__url">yourbusiness.com</span>
-        </div>
-        <div class="frame__body">
-          <div class="frame__h"></div>
-          <div class="frame__l s"></div>
-          <div class="frame__l m"></div>
-          <div class="frame__row">
-            <div class="frame__tile"></div><div class="frame__tile"></div><div class="frame__tile"></div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="frame">
+          <div class="frame__bar">
+            <span class="frame__dot"></span><span class="frame__dot"></span><span class="frame__dot"></span>
+            <span class="frame__url"><span id="typed">yourbusiness.co.za</span><span class="caret"></span></span>
           </div>
-          <div class="frame__btn"></div>
+          <div class="frame__body">
+            <div class="frame__h"></div>
+            <div class="frame__l s"></div>
+            <div class="frame__l m"></div>
+            <div class="frame__row"><div class="frame__tile"></div><div class="frame__tile"></div><div class="frame__tile"></div></div>
+            <div class="frame__btn"></div>
+          </div>
+        </div>
+        <div class="stamp">
+          <svg viewBox="0 0 116 116">
+            <defs><path id="circ" d="M58,58 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+            <text><textPath href="#circ">Free preview · no catch · free preview · no catch ·</textPath></text>
+          </svg>
+          <span class="stamp__mid">R0<br>to see it</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="strip">
-    <div class="wrap strip__in">
-      <div>
-        <h3>One person, start to finish</h3>
-        <p>You deal with the person writing the code. No account manager, no handovers, no agency overhead in the price.</p>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>Plumbers</span><span>Nail salons</span><span>Music teachers</span><span>Tour operators</span><span>Bakeries</span><span>Mechanics</span><span>Tutors</span><span>Guesthouses</span><span>Electricians</span><span>Personal trainers</span>
+      <span>Plumbers</span><span>Nail salons</span><span>Music teachers</span><span>Tour operators</span><span>Bakeries</span><span>Mechanics</span><span>Tutors</span><span>Guesthouses</span><span>Electricians</span><span>Personal trainers</span>
+    </div>
+  </div>
+
+  <section id="about" class="wrap">
+    <div class="about">
+      <div class="reveal">
+        <p class="label"><b>01</b> / The person behind it</p>
+        <h2>Small business, meet <span class="scribble">small business.</span></h2>
+        <div class="about__note">
+          <p>I'm a developer in Gqeberha, and Frontier Digital is me — not a stock photo of a team that doesn't exist. I started it because I kept seeing great local businesses whose only web presence was an old Facebook page and a phone number that rang through to voicemail.</p>
+          <p>Agencies quote five figures for a brochure site. Most of the businesses I want to help don't have that lying around, and honestly don't need it. They need a fast, honest page that gets the phone to ring. That I can build properly, for a price that makes sense.</p>
+          <p class="sig">— Adriaan</p>
+        </div>
       </div>
-      <div>
-        <h3>Built to load on a bad connection</h3>
-        <p>Hand-coded, no bloated page-builder. Most of your customers open your site on a phone, on data. It must be quick.</p>
-      </div>
-      <div>
-        <h3>Any timezone, mostly by email</h3>
-        <p>Email is how I work best — clear, written, on the record. Teams or Google Meet when a call is genuinely faster.</p>
+      <div class="rules reveal">
+        <div class="rule rule--yes">
+          <h3>What you can count on</h3>
+          <ul>
+            <li>A real, working preview before you pay a cent</li>
+            <li>Replies from me, usually the same working day</li>
+            <li>Hand-written code you own outright</li>
+            <li>Plain-English quotes with every cost listed</li>
+            <li>Being told when you <em>don't</em> need something</li>
+          </ul>
+        </div>
+        <div class="rule rule--no">
+          <h3>What I won't do</h3>
+          <ul>
+            <li>Lock you into a contract or hold your domain hostage</li>
+            <li>Sell you an app when a website will do</li>
+            <li>Hide fees in the fine print</li>
+            <li>Pretend demo sites are paying clients</li>
+            <li>Use a bloated page-builder and call it custom</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="work" class="wrap">
-    <div class="sec-head">
-      <p class="label">Work</p>
+    <div class="sec-head reveal">
+      <p class="label"><b>02</b> / Work</p>
       <h2>Three builds you can open right now</h2>
-      <p>Both are live, both run on the same stack I would use for you: hand-written HTML, CSS and JavaScript, no framework, no build step, hosted free. Open them on your phone and watch how fast they load.</p>
+      <p>All live, all on the stack I'd use for you: hand-written HTML, CSS and JavaScript, no framework, hosted free. Open them on your phone and time how fast they load.</p>
     </div>
 
     <div class="work">
-      <article class="case">
-        <div class="case__top">
-          <span class="case__kind">Music school</span>
-          <h3>Crescendo Music Academy</h3>
-        </div>
+      <article class="case reveal">
+        <div class="case__top"><span class="case__kind">Music school</span><h3>Crescendo Music Academy</h3></div>
         <div class="case__body">
           <p>A music school running piano, guitar, strings and voice lessons — the site has to sell the teachers and get a first lesson booked.</p>
           <ul>
@@ -407,15 +429,12 @@
             <li>Enquiry form with inline validation and a success state</li>
             <li>Roughly 1.25 MB in total — loads on mobile data</li>
           </ul>
-          <a class="btn btn--solid" href="https://pluto596polite.github.io/crescendo-music-academy/" target="_blank" rel="noopener">Open the live site</a>
+          <a class="btn btn--solid" href="https://pluto596polite.github.io/crescendo-music-academy/" target="_blank" rel="noopener">Open the live site <span class="arr" aria-hidden="true">↗</span></a>
         </div>
       </article>
 
-      <article class="case">
-        <div class="case__top">
-          <span class="case__kind">Tour operator</span>
-          <h3>Cape Meridian Tours</h3>
-        </div>
+      <article class="case reveal">
+        <div class="case__top"><span class="case__kind">Tour operator</span><h3>Cape Meridian Tours</h3></div>
         <div class="case__body">
           <p>A small-group tour operator with a catalogue of trips — a bigger, multi-page build where every tour needs its own page and enquiry path.</p>
           <ul>
@@ -424,15 +443,12 @@
             <li>Video hero in two formats with a poster fallback</li>
             <li>Full SEO: meta tags, social cards, structured data, sitemap</li>
           </ul>
-          <a class="btn btn--solid" href="https://pluto596polite.github.io/cape-meridian-tours/" target="_blank" rel="noopener">Open the live site</a>
+          <a class="btn btn--solid" href="https://pluto596polite.github.io/cape-meridian-tours/" target="_blank" rel="noopener">Open the live site <span class="arr" aria-hidden="true">↗</span></a>
         </div>
       </article>
 
-      <article class="case">
-        <div class="case__top">
-          <span class="case__kind">Nail salon</span>
-          <h3>Ivory Lane Nail Bar</h3>
-        </div>
+      <article class="case reveal">
+        <div class="case__top"><span class="case__kind">Nail salon</span><h3>Ivory Lane Nail Bar</h3></div>
         <div class="case__body">
           <p>A neighbourhood nail bar that lives on bookings — the site has to show the work, publish the prices and fill the diary without a single DM.</p>
           <ul>
@@ -441,23 +457,20 @@
             <li>Photo gallery with a tap-to-enlarge viewer</li>
             <li>Reviews rail, FAQ, map and a sticky "Book now" on phones</li>
           </ul>
-          <a class="btn btn--solid" href="demos/ivory-lane-nails/" target="_blank" rel="noopener">Open the live site</a>
+          <a class="btn btn--solid" href="demos/ivory-lane-nails/" target="_blank" rel="noopener">Open the live site <span class="arr" aria-hidden="true">↗</span></a>
         </div>
       </article>
 
-      <article class="case case--empty">
-        <div class="case__top">
-          <span class="case__kind">Available</span>
-          <h3>Your business here</h3>
-        </div>
+      <article class="case case--empty reveal">
+        <div class="case__top"><span class="case__kind">Available</span><h3>Your business here</h3></div>
         <div class="case__body">
-          <p>Send me what your business does and I will build the homepage for real, with your name on it, and email you the link. Free, and yours to judge before you pay anything.</p>
+          <p>This slot is yours. Tell me what the business does and I'll build the homepage for real, with your name on it, and email you the link. Free, and yours to judge before you pay anything.</p>
           <ul>
             <li>No template screenshot — a working page on a real address</li>
             <li>Usually back with you inside three working days</li>
-            <li>No obligation if it is not what you wanted</li>
+            <li>No obligation if it isn't what you wanted</li>
           </ul>
-          <a class="btn btn--ghost" href="#contact">Request my free preview</a>
+          <a class="btn btn--ghost" href="#contact">Claim this spot <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </article>
     </div>
@@ -470,98 +483,124 @@
   </section>
 
   <section id="pricing" class="wrap">
-    <div class="sec-head">
-      <p class="label">Pricing</p>
-      <h2>Four options, published up front</h2>
-      <p>All prices in South African rand. International clients are invoiced the same amount converted to their own currency on the day. Excludes your domain (about R220 a year) and any paid third-party service.</p>
+    <div class="sec-head reveal">
+      <p class="label"><b>03</b> / Pricing</p>
+      <h2>Prices I'm happy to publish</h2>
+      <p>Four kinds of build, smallest to biggest. Build prices are fixed starting points in rand. Running costs that depend on your project — server, database, app stores — are marked <span class="tbd" title="Worked out once I know what you need, and written into your quote before you commit.">TBD in quote</span> and always written down before you commit.</p>
     </div>
 
-    <div class="tiers">
-      <article class="tier">
-        <div class="tier__top"><h3>Once-off</h3><span class="tier__flag">SA only</span></div>
+    <div class="tiers tiers--4">
+      <article class="tier tier--lead reveal">
+        <div class="tier__top"><span class="tier__n">01</span><span class="tier__flag">Most businesses</span></div>
+        <h3>Static website</h3>
         <div>
-          <p class="tier__price">R500</p>
-          <p class="tier__usd">once-off · no monthly fee · ≈ $27 USD</p>
-        </div>
-        <p class="tier__for">A one-page site you own outright and host yourself. For South African clients only.</p>
-        <ul>
-          <li>One page: services, gallery, hours, contact</li>
-          <li>Click-to-call, WhatsApp and email buttons</li>
-          <li>Mobile-first, loads in under two seconds</li>
-          <li>Files handed over with a step-by-step hosting guide</li>
-          <li>Rather I host it? Added on request, quoted by site size and complexity</li>
-        </ul>
-        <a class="btn btn--ghost" href="#contact">Start once-off</a>
-      </article>
-
-      <article class="tier tier--lead">
-        <div class="tier__top"><h3>Website + care</h3><span class="tier__flag">Most asked for</span></div>
-        <div>
+          <p class="tier__from">From</p>
           <p class="tier__price">R800</p>
-          <p class="tier__usd">once-off, then R400/month · ≈ $43 + $22/mo USD</p>
+          <p class="tier__usd">once-off · ≈ $45 USD</p>
         </div>
-        <p class="tier__for">The same one-page site, hosted and looked after by me so you never think about it.</p>
+        <p class="tier__for">Information that rarely changes: who you are, what you do, how to reach you. Fast, cheap to run, nothing to break.</p>
         <ul>
-          <li>Everything in Once-off, plus a contact form to your inbox</li>
-          <li>Map embed and Google Business setup</li>
-          <li>Hosting, SSL, backups and security updates included</li>
-          <li>Up to two content changes a month</li>
-          <li>Cancel the monthly any time — the site stays yours</li>
+          <li>R800 for a one-pager; up to 5 pages R2 000</li>
+          <li>Click-to-call, WhatsApp, email and contact form</li>
+          <li>Gallery, price list, map and Google Business setup</li>
+          <li>Basic SEO and social share cards</li>
         </ul>
-        <a class="btn btn--solid" href="#contact">Start with Website + care</a>
+        <div class="running">
+          <div><span>Hosting</span><span>Care plan R400/mo, optional</span></div>
+          <div><span>Self-host</span><span>Free, guide included</span></div>
+          <div><span>Domain</span><span>~R100–R250/yr, in your name</span></div>
+        </div>
+        <a class="btn btn--solid" href="#contact">Start a static site <span class="arr" aria-hidden="true">→</span></a>
       </article>
 
-      <article class="tier">
-        <div class="tier__top"><h3>Standard</h3></div>
+      <article class="tier reveal">
+        <div class="tier__top"><span class="tier__n">02</span></div>
+        <h3>Dynamic website</h3>
         <div>
-          <p class="tier__price">R2 450</p>
-          <p class="tier__usd">once-off + R400/month care · ≈ $130 USD</p>
+          <p class="tier__from">From</p>
+          <p class="tier__price">R4 500</p>
+          <p class="tier__usd">once-off · ≈ $250 USD</p>
         </div>
-        <p class="tier__for">The Crescendo, Cape Meridian and Ivory Lane tier — several pages, real booking, proper SEO.</p>
+        <p class="tier__for">A site that changes and does things: online booking, a blog you edit yourself, enquiries saved to a database.</p>
         <ul>
-          <li>Everything in Website + care, across 4–6 pages</li>
-          <li>Online booking with calendar sync</li>
-          <li>Automatic confirmation and reminder emails</li>
-          <li>Menu, price list or service catalogue</li>
-          <li>Basic SEO so you rank for what you sell</li>
+          <li>Everything in Static, typically 4–8 pages</li>
+          <li>Bookings with calendar sync and reminder emails</li>
+          <li>Simple admin area to edit text, prices and photos</li>
+          <li>Forms and enquiries stored and exportable</li>
         </ul>
-        <a class="btn btn--ghost" href="#contact">Start with Standard</a>
+        <div class="running">
+          <div><span>Hosting</span><span class="tbd" title="Depends on traffic and features; confirmed in your quote.">TBD in quote</span></div>
+          <div><span>Database</span><span class="tbd" title="Often a free tier for small sites; confirmed in your quote.">TBD in quote</span></div>
+          <div><span>Care plan</span><span>R400/mo, optional</span></div>
+        </div>
+        <a class="btn btn--ghost" href="#contact">Discuss a dynamic site</a>
       </article>
 
-      <article class="tier">
-        <div class="tier__top"><h3>Store &amp; custom</h3></div>
+      <article class="tier reveal">
+        <div class="tier__top"><span class="tier__n">03</span></div>
+        <h3>Web app</h3>
         <div>
-          <p class="tier__price">From R4 950</p>
-          <p class="tier__usd">once-off · ≈ from $265 USD</p>
+          <p class="tier__from">From</p>
+          <p class="tier__price">R12 000</p>
+          <p class="tier__usd">once-off · ≈ $670 USD</p>
         </div>
-        <p class="tier__for">For selling online, or when you need software rather than pages.</p>
+        <p class="tier__for">Software that runs in the browser: customer logins, dashboards, online ordering, internal tools that replace a spreadsheet.</p>
         <ul>
-          <li>Online store with a payment gateway</li>
-          <li>Customer accounts and order history</li>
-          <li>Integrations with tools you already use</li>
-          <li>Custom APIs, dashboards and automation</li>
-          <li>Scoped and quoted per project</li>
+          <li>User accounts and role-based access</li>
+          <li>Database, dashboards and reports</li>
+          <li>Payments (PayFast, Yoco, Stripe) and integrations</li>
+          <li>Built in stages, with a working demo each stage</li>
         </ul>
-        <a class="btn btn--ghost" href="#contact">Discuss a custom build</a>
+        <div class="running">
+          <div><span>Hosting</span><span class="tbd" title="Sized to your users and data.">TBD in quote</span></div>
+          <div><span>Database</span><span class="tbd" title="Sized to your users and data.">TBD in quote</span></div>
+          <div><span>Support</span><span class="tbd" title="Monthly support scoped to the app.">TBD in quote</span></div>
+        </div>
+        <a class="btn btn--ghost" href="#contact">Discuss a web app</a>
+      </article>
+
+      <article class="tier reveal">
+        <div class="tier__top"><span class="tier__n">04</span></div>
+        <h3>Android or iOS app</h3>
+        <div>
+          <p class="tier__from">From</p>
+          <p class="tier__price">R18 000</p>
+          <p class="tier__usd">per platform · ≈ $1 000 USD</p>
+        </div>
+        <p class="tier__for">A real app in the Play Store or App Store: loyalty cards, bookings, ordering, push notifications.</p>
+        <ul>
+          <li>One platform from R18 000; both from R28 000</li>
+          <li>Store listing, screenshots and submission handled</li>
+          <li>Push notifications and offline basics</li>
+          <li>Honest advice first — a web app is often enough</li>
+        </ul>
+        <div class="running">
+          <div><span>Store fees</span><span>Google US$25 once · Apple US$99/yr</span></div>
+          <div><span>Backend</span><span class="tbd" title="Server, database and push service, sized to the app.">TBD in quote</span></div>
+          <div><span>Updates</span><span class="tbd" title="OS updates and fixes, scoped per app.">TBD in quote</span></div>
+        </div>
+        <a class="btn btn--ghost" href="#contact">Discuss an app</a>
       </article>
     </div>
 
     <div class="notes">
       <p><strong>Care plan — R400 a month.</strong>
-      Included with Website + care, available on any build. Hosting, SSL certificate, weekly backups, security updates, uptime monitoring, and up to two content changes a month. Cancel any time; the domain, the site and the code stay yours. Once-off sites can be hosted by me instead — priced per site, depending on its size and complexity.</p>
+      Hosting, SSL certificate, weekly backups, security updates, uptime monitoring and up to two content changes a month, for static and dynamic sites. Cancel any time; the domain, the site and the code stay yours.</p>
+      <p><strong>Just a one-pager, hosted by you?</strong>
+      R500 once-off for South African clients, files handed over with a step-by-step hosting guide. Want me to host it after all? That's added at a price based on the site's size and complexity.</p>
       <p><strong>Payment.</strong>
-      Half up front, half when the site goes live — R400 to start on Website + care, R250 on Once-off. South African clients pay by EFT; international clients by Wise, PayPal or card, converted from the rand price at the day's rate.</p>
+      Websites: half up front, half at go-live. Web and phone apps: paid in milestones (40% / 30% / 30%) against working demos. South African clients pay by EFT; international clients by Wise, PayPal or card, converted from the rand price at the day's rate. App-store accounts and third-party services are in your name and paid by you, so you always own them.</p>
     </div>
   </section>
 
   <section id="support" class="wrap">
-    <div class="sec-head">
-      <p class="label">Computer help</p>
+    <div class="sec-head reveal">
+      <p class="label"><b>04</b> / Computer help</p>
       <h2>Stuck with a computer problem? Remote help via TeamViewer</h2>
       <p>Besides websites, I help people and small businesses fix and set up their computers remotely. You install TeamViewer, give me a session code, and I work on your screen while you watch. No travel, works from anywhere. Prices in South African rand; international clients are invoiced the converted amount.</p>
     </div>
 
-    <div class="tiers">
+    <div class="tiers tiers--3">
       <article class="tier">
         <div class="tier__top"><h3>Quick fix</h3></div>
         <div>
@@ -620,78 +659,68 @@
   </section>
 
   <section id="process" class="wrap">
-    <div class="sec-head">
-      <p class="label">Process</p>
+    <div class="sec-head reveal">
+      <p class="label"><b>05</b> / Process</p>
       <h2>What actually happens, in order</h2>
       <p>Four steps, mostly over email. You see real work before you commit money.</p>
     </div>
-
     <div class="steps">
-      <div class="step">
-        <p class="step__n">Step 01</p>
-        <h3>A few emails, or one short call</h3>
-        <p>What you sell, who buys it, and what the site must make happen — a call, a booking, an order. Email suits me best; Teams or Google Meet if you would rather talk it through.</p>
-      </div>
-      <div class="step">
-        <p class="step__n">Step 02</p>
-        <h3>A free preview, built for real</h3>
-        <p>I build the homepage with your actual business on it and email you a live link — the same way the examples above went up. No cost, no obligation.</p>
-      </div>
-      <div class="step">
-        <p class="step__n">Step 03</p>
-        <h3>Two rounds of changes</h3>
-        <p>You reply with what you want different. I change it. We do that twice, then the deposit is due and the rest of the pages get built.</p>
-      </div>
-      <div class="step">
-        <p class="step__n">Step 04</p>
-        <h3>Live, and looked after</h3>
-        <p>Domain pointed, SSL on, analytics and search console connected, site submitted to Google. From there the care plan keeps it patched and backed up.</p>
-      </div>
+      <div class="step reveal"><p class="step__n">01</p><h3>A few emails, or one short call</h3><p>What you sell, who buys it, and what the site or app must make happen — a call, a booking, an order. Email suits me best; Teams or Google Meet if you'd rather talk.</p></div>
+      <div class="step reveal"><p class="step__n">02</p><h3>A free preview, built for real</h3><p>I build the homepage (or the first screen of the app) with your actual business on it and send you a live link. No cost, no obligation.</p></div>
+      <div class="step reveal"><p class="step__n">03</p><h3>Two rounds of changes</h3><p>You tell me what to change. I change it. Twice. Then the deposit is due and the rest gets built.</p></div>
+      <div class="step reveal"><p class="step__n">04</p><h3>Live, and looked after</h3><p>Domain pointed, SSL on, analytics connected, submitted to Google (or the app stores). From there the care plan keeps it patched and backed up.</p></div>
     </div>
   </section>
 
   <section id="faq" class="wrap">
-    <div class="sec-head">
-      <p class="label">Questions</p>
+    <div class="sec-head reveal">
+      <p class="label"><b>06</b> / Questions</p>
       <h2>The things people ask first</h2>
     </div>
-
     <div class="faq">
       <details open>
         <summary>How is this so much cheaper than the agency quote?</summary>
-        <p>An agency quote carries a project manager, a designer, a developer and an office. This is one person who does all three jobs and works from home. The code is the same standard — there is just less of a business attached to it.</p>
+        <p>An agency quote carries a project manager, a designer, a developer and an office. This is one person doing all three jobs from home. The code is the same standard — there's just less business attached to it.</p>
+      </details>
+      <details>
+        <summary>Static, dynamic, web app or phone app — which do I need?</summary>
+        <p>Most small businesses need a static site: it's fastest, cheapest and has the least to go wrong. Go dynamic if you take bookings or want to edit content yourself. A web app is for logins, orders or dashboards. A phone app only makes sense if customers will open it often — I'll tell you honestly if a website does the job.</p>
+      </details>
+      <details>
+        <summary>Why are some running costs "TBD in quote"?</summary>
+        <p>Servers, databases and app backends are priced by how much they're used. A booking site for one salon costs very differently from an ordering app for three branches. I work it out once I know what you need and put it in writing before you commit — no surprises later.</p>
       </details>
       <details>
         <summary>Are the examples real clients?</summary>
-        <p>No, and I will not pretend otherwise. Crescendo Music Academy, Cape Meridian Tours and Ivory Lane Nail Bar are demonstration builds for invented companies, made so you can judge the work before hiring me. Everything on them is real and working — the code, the speed, the forms — only the businesses are made up.</p>
+        <p>No, and I won't pretend otherwise. Crescendo Music Academy, Cape Meridian Tours and Ivory Lane Nail Bar are demonstration builds for invented companies, made so you can judge the work before hiring me. Everything on them is real and working — only the businesses are made up.</p>
       </details>
       <details>
-        <summary>Do I own the site?</summary>
-        <p>Yes. The domain is registered in your name and the site's files are yours. If you ever want to move it elsewhere, I hand over everything — no hostage-taking.</p>
+        <summary>You're one person. What if you're unavailable?</summary>
+        <p>Everything I build is documented and handed over: code, logins in your name, and notes on how it fits together. Any competent developer could pick it up. You're never dependent on me to keep your site alive.</p>
       </details>
       <details>
-        <summary>I am not in South Africa. Does that work?</summary>
-        <p>It does. Most of the work is asynchronous and happens over email, so a time difference rarely matters. When a call is needed I will make your working hours work — Teams or Google Meet, whichever you already use. Prices are set in rand and converted to your currency at the day's rate — Wise, PayPal or card.</p>
+        <summary>Do I own the site or app?</summary>
+        <p>Yes. The domain and any store accounts are registered in your name and the code is yours. If you ever want to move, I hand over everything — no hostage-taking.</p>
+      </details>
+      <details>
+        <summary>I'm not in South Africa. Does that work?</summary>
+        <p>It does. Most work is asynchronous over email, so time differences rarely matter. Calls on Teams or Google Meet in your working hours. Prices are set in rand and converted at the day's rate — Wise, PayPal or card. The R500 self-hosted one-pager is for South African clients only.</p>
       </details>
       <details>
         <summary>What is the monthly fee actually for?</summary>
-        <p>R400 a month covers hosting and the SSL certificate, weekly backups, security updates, uptime monitoring, and up to two small content changes a month — new prices, new photos, changed hours. Would rather host it yourself? Take the R500 Once-off site (South Africa only) and skip the monthly fee entirely.</p>
+        <p>R400 a month covers hosting and the SSL certificate, weekly backups, security updates, uptime monitoring, and up to two small content changes a month — new prices, new photos, changed hours. Skip it and host yourself if you prefer; the build price doesn't change.</p>
       </details>
       <details>
         <summary>How long does it take?</summary>
-        <p>One-page sites are usually live within a week of the deposit. Standard takes about two weeks, mostly waiting on photos and copy from you. Store and custom builds are quoted with a timeline.</p>
+        <p>One-page static sites are usually live within a week of the deposit. Dynamic sites take two to three weeks, mostly waiting on photos and copy. Web and phone apps are quoted with a timeline and delivered in stages.</p>
       </details>
       <details>
-        <summary>I do not have photos or written content.</summary>
-        <p>Most people do not. I write the first draft of the copy from your answers and you correct it. For photos, phone photos taken in good light are usually fine, and I will tell you exactly what to shoot.</p>
+        <summary>I don't have photos or written content.</summary>
+        <p>Most people don't. I write the first draft of the copy from your answers and you correct it. Phone photos taken in good light are usually fine — I'll tell you exactly what to shoot.</p>
       </details>
       <details>
         <summary>Is TeamViewer remote help safe?</summary>
-        <p>Yes. A session only starts when you open TeamViewer and give me your one-time code, and you can see everything I do on screen. Close the window and the session ends. I never ask for your passwords.</p>
-      </details>
-      <details>
-        <summary>Can you fix or take over the site I already have?</summary>
-        <p>Often, yes. Send me the address and I will tell you honestly whether it is worth repairing or worth rebuilding.</p>
+        <p>Yes. A session only starts when you open TeamViewer and give me your one-time code, and you see everything I do. Close the window and it ends. I never ask for your passwords.</p>
       </details>
     </div>
   </section>
@@ -699,62 +728,37 @@
   <section id="contact" class="contact">
     <div class="wrap contact__grid">
       <div>
-        <p class="label">Get started</p>
+        <p class="label"><b>07</b> / Get started</p>
         <h2>Tell me about the business</h2>
-        <p class="lede">
-          Send the details and you will get a free homepage preview back — a real page with your
-          business on it — usually within three working days. Email is the fastest way to reach me.
-        </p>
-
+        <p class="lede">Send the details and you'll get a free preview back — a real page with your business on it — usually within three working days. Email is the fastest way to reach me, and yes, I actually read it.</p>
         <div class="direct">
-          <a href="mailto:avanwyk191@gmail.com">
-            <span>Email (preferred)</span><span>avanwyk191@gmail.com</span>
-          </a>
-          <div>
-            <span>Calls</span><span>Teams or Google Meet, by arrangement</span>
-          </div>
-          <div>
-            <span>Hours</span><span>SAST (UTC+2) — flexible for your timezone</span>
-          </div>
-          <div>
-            <span>Based in</span><span>South Africa · clients worldwide</span>
-          </div>
+          <a href="mailto:avanwyk191@gmail.com"><span>Email (preferred)</span><span>avanwyk191@gmail.com</span></a>
+          <div><span>Calls</span><span>Teams or Google Meet, by arrangement</span></div>
+          <div><span>Hours</span><span>SAST (UTC+2) — flexible for your timezone</span></div>
+          <div><span>Based in</span><span>Gqeberha, South Africa · clients worldwide</span></div>
         </div>
       </div>
 
       <!-- Swap the action for your form endpoint (Formspree, Web3Forms, Netlify Forms). -->
       <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required placeholder="Thandi Mokoena"></div>
+        <div class="field"><label for="business">Business name</label><input id="business" name="business" type="text" required placeholder="Bay City Plumbing"></div>
+        <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" required placeholder="you@yourbusiness.com"></div>
+        <div class="field"><label for="country">Country / timezone</label><input id="country" name="country" type="text" placeholder="South Africa · UTC+2"></div>
         <div class="field">
-          <label for="name">Your name</label>
-          <input id="name" name="name" type="text" required placeholder="Thandi Mokoena">
-        </div>
-        <div class="field">
-          <label for="business">Business name</label>
-          <input id="business" name="business" type="text" required placeholder="Bay City Plumbing">
-        </div>
-        <div class="field">
-          <label for="email">Email address</label>
-          <input id="email" name="email" type="email" required placeholder="you@yourbusiness.com">
-        </div>
-        <div class="field">
-          <label for="country">Country / timezone</label>
-          <input id="country" name="country" type="text" placeholder="South Africa · UTC+2">
-        </div>
-        <div class="field">
-          <label for="package">Package you have in mind</label>
+          <label for="package">What do you have in mind?</label>
           <select id="package" name="package">
             <option>Not sure yet — advise me</option>
-            <option>Once-off — R500 (SA only, self-hosted)</option>
-            <option>Website + care — R800 + R400/month</option>
-            <option>Standard — R2 450</option>
-            <option>Store &amp; custom — from R4 950</option>
+            <option>Static website — from R800</option>
+            <option>Dynamic website — from R4 500</option>
+            <option>Web app — from R12 000</option>
+            <option>Android or iOS app — from R18 000</option>
+            <option>Self-hosted one-pager — R500 (SA only)</option>
+            <option>Remote computer help</option>
           </select>
         </div>
-        <div class="field">
-          <label for="message">What does the business do?</label>
-          <textarea id="message" name="message" placeholder="Two or three lines is plenty. Existing site or social page? Paste the link."></textarea>
-        </div>
-        <button class="btn" type="submit">Send and get my free preview</button>
+        <div class="field"><label for="message">What does the business do?</label><textarea id="message" name="message" placeholder="Two or three lines is plenty. Existing site or social page? Paste the link."></textarea></div>
+        <button class="btn" type="submit">Send and get my free preview <span class="arr" aria-hidden="true">→</span></button>
       </form>
     </div>
   </section>
@@ -762,12 +766,42 @@
 
 <footer>
   <div class="wrap foot__in">
-    <span>Frontier Digital · South Africa · working worldwide</span>
+    <span>Frontier Digital · made by hand in Gqeberha · no page builders were harmed</span>
     <span class="spacer"></span>
     <a href="#work">Work</a>
     <a href="#pricing">Pricing</a>
     <a href="mailto:avanwyk191@gmail.com">Email</a>
   </div>
 </footer>
+
+<script>
+(() => {
+  'use strict';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reveal on scroll.
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Hero address bar types out different local businesses.
+  const typed = document.getElementById('typed');
+  if (reduce || !typed) return;
+  const domains = ['yourbusiness.co.za', 'baycityplumbing.co.za', 'walmernails.co.za', 'thebakery.co.za', 'pemechanic.co.za'];
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  let i = 0;
+  (async () => {
+    for (;;) {
+      await sleep(2600);
+      const cur = typed.textContent;
+      for (let n = cur.length; n >= 0; n--) { typed.textContent = cur.slice(0, n); await sleep(28); }
+      i = (i + 1) % domains.length;
+      const next = domains[i];
+      for (let n = 1; n <= next.length; n++) { typed.textContent = next.slice(0, n); await sleep(65); }
+    }
+  })();
+})();
+</script>
 </body>
 </html>
