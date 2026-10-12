@@ -6,9 +6,9 @@
 <title>Frontier Digital</title>
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="description" content="Frontier Digital — hand-coded websites for small businesses, from R950 once-off. Two live examples you can open. Free preview before you pay.">
+<meta name="description" content="Frontier Digital — hand-coded websites for small businesses, from R800 plus R400 a month hosted, or R500 once-off if you host it yourself. Three live examples you can open. Free preview before you pay.">
 <meta property="og:title" content="Frontier Digital">
-<meta property="og:description" content="Hand-coded websites for small businesses, from R950. Free preview before you pay.">
+<meta property="og:description" content="Hand-coded websites for small businesses, from R500. Free preview before you pay.">
 <meta property="og:type" content="website">
 <style>
   html { color-scheme: light; }
@@ -164,7 +164,7 @@
 
   /* ---------- work ---------- */
   .work { display: grid; gap: 1.5rem; }
-  @media (min-width: 900px) { .work { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 760px) { .work { grid-template-columns: repeat(2, 1fr); } }
 
   .case {
     border: 1px solid var(--ink); border-radius: var(--radius);
@@ -197,7 +197,7 @@
 
   /* ---------- packages ---------- */
   .tiers { display: grid; gap: 1.25rem; align-items: start; }
-  @media (min-width: 900px) { .tiers { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 760px) { .tiers { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
 
   .tier {
     display: flex; flex-direction: column; gap: 1.1rem;
@@ -340,7 +340,7 @@
         <p class="label">Frontier Digital · Websites for small businesses</p>
         <h1>A real website, <em>under a thousand rand.</em></h1>
         <p class="hero__lede">
-          Hand-coded sites for small businesses and solo operators — from R950. One person
+          Hand-coded sites for small businesses and solo operators — from R500. One person
           doing the work, so there is no agency margin in the quote. Based in South Africa,
           building for clients anywhere.
         </p>
@@ -389,7 +389,7 @@
   <section id="work" class="wrap">
     <div class="sec-head">
       <p class="label">Work</p>
-      <h2>Two builds you can open right now</h2>
+      <h2>Three builds you can open right now</h2>
       <p>Both are live, both run on the same stack I would use for you: hand-written HTML, CSS and JavaScript, no framework, no build step, hosted free. Open them on your phone and watch how fast they load.</p>
     </div>
 
@@ -428,6 +428,23 @@
         </div>
       </article>
 
+      <article class="case">
+        <div class="case__top">
+          <span class="case__kind">Nail salon</span>
+          <h3>Ivory Lane Nail Bar</h3>
+        </div>
+        <div class="case__body">
+          <p>A neighbourhood nail bar that lives on bookings — the site has to show the work, publish the prices and fill the diary without a single DM.</p>
+          <ul>
+            <li>Online booking: service, date and live time slots, with opening hours built in</li>
+            <li>Filterable price menu that also feeds the booking form</li>
+            <li>Photo gallery with a tap-to-enlarge viewer</li>
+            <li>Reviews rail, FAQ, map and a sticky "Book now" on phones</li>
+          </ul>
+          <a class="btn btn--solid" href="demos/ivory-lane-nails/" target="_blank" rel="noopener">Open the live site</a>
+        </div>
+      </article>
+
       <article class="case case--empty">
         <div class="case__top">
           <span class="case__kind">Available</span>
@@ -446,8 +463,8 @@
     </div>
 
     <p class="disclaimer">
-      Both examples are demonstration builds for invented companies — Crescendo Music Academy and
-      Cape Meridian Tours are not real businesses. They exist to show the standard of the work,
+      All three examples are demonstration builds for invented companies — Crescendo Music Academy,
+      Cape Meridian Tours and Ivory Lane Nail Bar are not real businesses. They exist to show the standard of the work,
       not to claim clients I do not have.
     </p>
   </section>
@@ -455,43 +472,60 @@
   <section id="pricing" class="wrap">
     <div class="sec-head">
       <p class="label">Pricing</p>
-      <h2>Three prices, published up front</h2>
+      <h2>Four options, published up front</h2>
       <p>All prices in South African rand. International clients are invoiced the same amount converted to their own currency on the day. Excludes your domain (about R220 a year) and any paid third-party service.</p>
     </div>
 
     <div class="tiers">
       <article class="tier">
-        <div class="tier__top"><h3>Starter</h3></div>
+        <div class="tier__top"><h3>Once-off</h3><span class="tier__flag">SA only</span></div>
         <div>
-          <p class="tier__price">R950</p>
-          <p class="tier__usd">once-off · ≈ $50 USD</p>
+          <p class="tier__price">R500</p>
+          <p class="tier__usd">once-off · no monthly fee · ≈ $27 USD</p>
         </div>
-        <p class="tier__for">A one-page site for a trade, freelancer or service business that just needs to exist and be contactable.</p>
+        <p class="tier__for">A one-page site you own outright and host yourself. For South African clients only.</p>
         <ul>
           <li>One page: services, gallery, hours, contact</li>
           <li>Click-to-call, WhatsApp and email buttons</li>
-          <li>Map embed and Google Business setup</li>
           <li>Mobile-first, loads in under two seconds</li>
-          <li>Contact form straight to your inbox</li>
+          <li>Files handed over with a step-by-step hosting guide</li>
+          <li>Rather I host it? Added on request, quoted by site size and complexity</li>
         </ul>
-        <a class="btn btn--ghost" href="#contact">Start with Starter</a>
+        <a class="btn btn--ghost" href="#contact">Start once-off</a>
       </article>
 
       <article class="tier tier--lead">
-        <div class="tier__top"><h3>Standard</h3><span class="tier__flag">Most asked for</span></div>
+        <div class="tier__top"><h3>Website + care</h3><span class="tier__flag">Most asked for</span></div>
+        <div>
+          <p class="tier__price">R800</p>
+          <p class="tier__usd">once-off, then R400/month · ≈ $43 + $22/mo USD</p>
+        </div>
+        <p class="tier__for">The same one-page site, hosted and looked after by me so you never think about it.</p>
+        <ul>
+          <li>Everything in Once-off, plus a contact form to your inbox</li>
+          <li>Map embed and Google Business setup</li>
+          <li>Hosting, SSL, backups and security updates included</li>
+          <li>Up to two content changes a month</li>
+          <li>Cancel the monthly any time — the site stays yours</li>
+        </ul>
+        <a class="btn btn--solid" href="#contact">Start with Website + care</a>
+      </article>
+
+      <article class="tier">
+        <div class="tier__top"><h3>Standard</h3></div>
         <div>
           <p class="tier__price">R2 450</p>
-          <p class="tier__usd">once-off · ≈ $130 USD</p>
+          <p class="tier__usd">once-off + R400/month care · ≈ $130 USD</p>
         </div>
-        <p class="tier__for">The Crescendo and Cape Meridian tier — several pages, real booking, proper SEO.</p>
+        <p class="tier__for">The Crescendo, Cape Meridian and Ivory Lane tier — several pages, real booking, proper SEO.</p>
         <ul>
-          <li>Everything in Starter, across 4–6 pages</li>
+          <li>Everything in Website + care, across 4–6 pages</li>
           <li>Online booking with calendar sync</li>
           <li>Automatic confirmation and reminder emails</li>
           <li>Menu, price list or service catalogue</li>
           <li>Basic SEO so you rank for what you sell</li>
         </ul>
-        <a class="btn btn--solid" href="#contact">Start with Standard</a>
+        <a class="btn btn--ghost" href="#contact">Start with Standard</a>
       </article>
 
       <article class="tier">
@@ -513,10 +547,10 @@
     </div>
 
     <div class="notes">
-      <p><strong>Care plan — R120 a month.</strong>
-      Hosting, SSL certificate, weekly backups, security updates, uptime monitoring, and up to two content changes a month. Cancel any time; the domain, the site and the code stay yours.</p>
+      <p><strong>Care plan — R400 a month.</strong>
+      Included with Website + care, available on any build. Hosting, SSL certificate, weekly backups, security updates, uptime monitoring, and up to two content changes a month. Cancel any time; the domain, the site and the code stay yours. Once-off sites can be hosted by me instead — priced per site, depending on its size and complexity.</p>
       <p><strong>Payment.</strong>
-      Half up front, half when the site goes live — R475 to start on a Starter build. South African clients pay by EFT; international clients by Wise, PayPal or card, converted from the rand price at the day's rate.</p>
+      Half up front, half when the site goes live — R400 to start on Website + care, R250 on Once-off. South African clients pay by EFT; international clients by Wise, PayPal or card, converted from the rand price at the day's rate.</p>
     </div>
   </section>
 
@@ -601,7 +635,7 @@
       <div class="step">
         <p class="step__n">Step 02</p>
         <h3>A free preview, built for real</h3>
-        <p>I build the homepage with your actual business on it and email you a live link — the same way the two examples above went up. No cost, no obligation.</p>
+        <p>I build the homepage with your actual business on it and email you a live link — the same way the examples above went up. No cost, no obligation.</p>
       </div>
       <div class="step">
         <p class="step__n">Step 03</p>
@@ -628,8 +662,8 @@
         <p>An agency quote carries a project manager, a designer, a developer and an office. This is one person who does all three jobs and works from home. The code is the same standard — there is just less of a business attached to it.</p>
       </details>
       <details>
-        <summary>Are the two examples real clients?</summary>
-        <p>No, and I will not pretend otherwise. Crescendo Music Academy and Cape Meridian Tours are demonstration builds for invented companies, made so you can judge the work before hiring me. Everything on them is real and working — the code, the speed, the forms — only the businesses are made up.</p>
+        <summary>Are the examples real clients?</summary>
+        <p>No, and I will not pretend otherwise. Crescendo Music Academy, Cape Meridian Tours and Ivory Lane Nail Bar are demonstration builds for invented companies, made so you can judge the work before hiring me. Everything on them is real and working — the code, the speed, the forms — only the businesses are made up.</p>
       </details>
       <details>
         <summary>Do I own the site?</summary>
@@ -641,11 +675,11 @@
       </details>
       <details>
         <summary>What is the monthly fee actually for?</summary>
-        <p>Hosting and the SSL certificate, weekly backups, security updates, uptime monitoring, and up to two small content changes a month — new prices, new photos, changed hours. Skip it if you would rather host it yourself; the once-off build price does not change.</p>
+        <p>R400 a month covers hosting and the SSL certificate, weekly backups, security updates, uptime monitoring, and up to two small content changes a month — new prices, new photos, changed hours. Would rather host it yourself? Take the R500 Once-off site (South Africa only) and skip the monthly fee entirely.</p>
       </details>
       <details>
         <summary>How long does it take?</summary>
-        <p>Starter is usually live within a week of the deposit. Standard takes about two weeks, mostly waiting on photos and copy from you. Store and custom builds are quoted with a timeline.</p>
+        <p>One-page sites are usually live within a week of the deposit. Standard takes about two weeks, mostly waiting on photos and copy from you. Store and custom builds are quoted with a timeline.</p>
       </details>
       <details>
         <summary>I do not have photos or written content.</summary>
@@ -710,7 +744,8 @@
           <label for="package">Package you have in mind</label>
           <select id="package" name="package">
             <option>Not sure yet — advise me</option>
-            <option>Starter — R950</option>
+            <option>Once-off — R500 (SA only, self-hosted)</option>
+            <option>Website + care — R800 + R400/month</option>
             <option>Standard — R2 450</option>
             <option>Store &amp; custom — from R4 950</option>
           </select>

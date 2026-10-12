@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ivory Lane Nail Bar · Walmer, Gqeberha</title>
+<meta name="description" content="Gel, BIAB, acrylic and nail art in Walmer, Gqeberha. Book online in under a minute. (Demonstration website by Frontier Digital — fictional business.)">
+<!-- Demo build for an invented business: keep it out of search results so nobody mistakes it for a real salon. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3A1F2B">
+<meta property="og:title" content="Ivory Lane Nail Bar — demo site">
+<meta property="og:description" content="Demonstration nail-salon website built by Frontier Digital.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<link rel="preload" as="image" href="img/hero.webp" type="image/webp">
+<style>
+  /* ---------- tokens ---------- */
+  :root {
+    --cream:    #FBF6F1;
+    --blush:    #F3E3DC;
+    --blush-2:  #E9CFC4;
+    --rose:     #B7697A;   /* accent: buttons, links */
+    --rose-dk:  #94505F;
+    --plum:     #3A1F2B;   /* ink */
+    --plum-2:   #6B4B57;   /* soft ink */
+    --line:     rgba(58, 31, 43, .16);
+    --shadow:   0 24px 50px -30px rgba(58, 31, 43, .45);
+
+    --f-display: "Cormorant Garamond", Georgia, serif;
+    --f-body:    "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --gutter: clamp(1rem, 4vw, 3rem);
+    --radius: 18px;
+    --pill: 999px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body {
+    margin: 0; background: var(--cream); color: var(--plum);
+    font-family: var(--f-body); font-size: clamp(1rem, .97rem + .15vw, 1.06rem);
+    line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  h1, h2, h3 { font-family: var(--f-display); font-weight: 600; line-height: 1.05; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  a { color: inherit; }
+  .wrap { max-width: 1160px; margin-inline: auto; padding-inline: var(--gutter); }
+  section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+
+  .eyebrow {
+    font-size: .74rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rose-dk);
+  }
+  .sec-head { display: grid; gap: .8rem; margin-bottom: clamp(2rem, 4vw, 3rem); max-width: 60ch; }
+  .sec-head h2 { font-size: clamp(2.1rem, 1.4rem + 2.8vw, 3.4rem); }
+  .sec-head p { color: var(--plum-2); }
+  .center { margin-inline: auto; text-align: center; }
+
+  .skip { position: absolute; left: -999px; top: .5rem; background: var(--plum); color: var(--cream); padding: .6rem 1rem; border-radius: var(--pill); z-index: 99; }
+  .skip:focus { left: .5rem; }
+  :where(a, button, input, select, textarea, summary):focus-visible { outline: 2px solid var(--rose-dk); outline-offset: 3px; }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    font: 700 .95rem/1 var(--f-body); padding: .95rem 1.5rem; border-radius: var(--pill);
+    text-decoration: none; border: 1.5px solid transparent; cursor: pointer;
+    transition: background-color .2s, color .2s, transform .2s, border-color .2s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn--primary { background: var(--plum); color: var(--cream); }
+  .btn--primary:hover { background: var(--rose-dk); }
+  .btn--ghost { border-color: var(--plum); color: var(--plum); background: transparent; }
+  .btn--ghost:hover { background: var(--plum); color: var(--cream); }
+
+  /* ---------- header ---------- */
+  .top { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--cream) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .top__in { display: flex; align-items: center; gap: 1rem; height: 68px; }
+  .brand { display: flex; align-items: baseline; gap: .45rem; text-decoration: none; margin-right: auto; }
+  .brand b { font-family: var(--f-display); font-size: 1.55rem; font-weight: 600; letter-spacing: -.01em; }
+  .brand i { font-style: normal; font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--rose-dk); }
+  .nav { display: none; gap: 1.8rem; font-weight: 500; font-size: .93rem; }
+  .nav a { text-decoration: none; color: var(--plum-2); }
+  .nav a:hover { color: var(--plum); }
+  .top .btn { padding: .7rem 1.15rem; font-size: .88rem; }
+  .menu-btn { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; color: var(--plum); }
+  .menu-btn svg { width: 20px; height: 20px; }
+  .drawer { display: none; border-top: 1px solid var(--line); background: var(--cream); }
+  .drawer.open { display: block; }
+  .drawer a { display: block; padding: .95rem var(--gutter); text-decoration: none; border-bottom: 1px solid var(--line); font-weight: 500; }
+  @media (min-width: 900px) { .nav { display: flex; } .menu-btn, .drawer, .drawer.open { display: none; } }
+  @media (max-width: 420px) { .top .btn { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero { padding-block: clamp(2rem, 5vw, 4.5rem) clamp(3rem, 6vw, 5rem); }
+  .hero__grid { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  @media (min-width: 900px) { .hero__grid { grid-template-columns: 1.05fr .95fr; } }
+  .hero h1 { font-size: clamp(2.9rem, 1.6rem + 5.4vw, 5.6rem); letter-spacing: -.02em; }
+  .hero h1 em { font-style: italic; color: var(--rose-dk); }
+  .hero__lede { margin-top: 1.4rem; font-size: 1.12em; color: var(--plum-2); max-width: 46ch; }
+  .hero__cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+  .hero__proof { display: flex; align-items: center; gap: .75rem; margin-top: 2rem; font-size: .9rem; color: var(--plum-2); }
+  .stars { color: var(--rose); letter-spacing: .12em; }
+  .hero__media { position: relative; }
+  .hero__media picture img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 220px 220px var(--radius) var(--radius); box-shadow: var(--shadow); }
+  .badge {
+    position: absolute; left: -.5rem; bottom: 2rem; background: var(--cream); border-radius: var(--radius);
+    padding: .9rem 1.1rem; box-shadow: var(--shadow); display: grid; gap: .1rem; max-width: 220px;
+  }
+  .badge strong { font-family: var(--f-display); font-size: 1.6rem; line-height: 1; }
+  .badge span { font-size: .82rem; color: var(--plum-2); }
+  @media (min-width: 900px) { .badge { left: -2rem; } }
+
+  /* ---------- trust bar ---------- */
+  .trust { background: var(--plum); color: var(--cream); padding-block: 1.6rem; }
+  .trust__in { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; text-align: center; }
+  @media (min-width: 760px) { .trust__in { grid-template-columns: repeat(4, 1fr); } }
+  .trust strong { display: block; font-family: var(--f-display); font-size: 2.1rem; line-height: 1; }
+  .trust span { font-size: .82rem; opacity: .8; }
+
+  /* ---------- services ---------- */
+  .tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.75rem; }
+  .tab {
+    font: 500 .92rem var(--f-body); padding: .6rem 1.15rem; border-radius: var(--pill);
+    border: 1px solid var(--line); background: transparent; color: var(--plum); cursor: pointer;
+  }
+  .tab[aria-selected="true"] { background: var(--plum); color: var(--cream); border-color: var(--plum); }
+  .menu { display: grid; gap: 0 3rem; }
+  @media (min-width: 820px) { .menu { grid-template-columns: 1fr 1fr; } }
+  .item { display: grid; grid-template-columns: 1fr auto; gap: .2rem 1rem; padding-block: 1.15rem; border-bottom: 1px solid var(--line); }
+  .item h3 { font-size: 1.45rem; }
+  .item .price { font-family: var(--f-display); font-size: 1.45rem; font-weight: 600; white-space: nowrap; }
+  .item p { grid-column: 1 / -1; color: var(--plum-2); font-size: .93rem; }
+  .item small { color: var(--rose-dk); font-weight: 700; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+  .item[hidden] { display: none; }
+  .menu-note { margin-top: 1.5rem; font-size: .88rem; color: var(--plum-2); }
+
+  /* ---------- feature split ---------- */
+  .split { background: var(--blush); }
+  .split__grid { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  @media (min-width: 900px) { .split__grid { grid-template-columns: .9fr 1.1fr; } }
+  .split img { border-radius: var(--radius); width: 100%; aspect-ratio: 3 / 2; object-fit: cover; box-shadow: var(--shadow); }
+  .checks { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: .85rem; }
+  .checks li { display: grid; grid-template-columns: 1.6rem 1fr; gap: .6rem; }
+  .checks li::before { content: "✓"; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--cream); color: var(--rose-dk); font-weight: 700; font-size: .8rem; }
+
+  /* ---------- gallery ---------- */
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+  @media (min-width: 760px) { .gallery { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+  .gallery button { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: var(--radius); overflow: hidden; position: relative; }
+  .gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; transition: transform .5s ease; }
+  .gallery button:hover img { transform: scale(1.05); }
+  .gallery figcaption { position: absolute; left: .6rem; bottom: .6rem; background: var(--cream); padding: .3rem .7rem; border-radius: var(--pill); font-size: .78rem; font-weight: 500; }
+  .lightbox { border: 0; padding: 0; background: transparent; max-width: min(92vw, 820px); }
+  .lightbox::backdrop { background: rgba(30, 14, 22, .86); }
+  .lightbox img { max-height: 82vh; width: auto; margin-inline: auto; border-radius: var(--radius); }
+  .lightbox p { color: var(--cream); text-align: center; margin-top: .8rem; }
+  .lightbox .close { position: fixed; top: 1rem; right: 1rem; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--cream); color: var(--plum); font-size: 1.4rem; cursor: pointer; }
+
+  /* ---------- team ---------- */
+  .team { display: grid; gap: 1.25rem; }
+  @media (min-width: 760px) { .team { grid-template-columns: repeat(3, 1fr); } }
+  .tech { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; display: grid; gap: .6rem; }
+  .tech__av { width: 56px; height: 56px; border-radius: 50%; background: var(--blush-2); display: grid; place-items: center; font-family: var(--f-display); font-size: 1.4rem; font-weight: 600; }
+  .tech h3 { font-size: 1.5rem; }
+  .tech span { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--rose-dk); }
+  .tech p { color: var(--plum-2); font-size: .93rem; }
+
+  /* ---------- reviews ---------- */
+  .reviews { background: var(--plum); color: var(--cream); }
+  .reviews .eyebrow { color: var(--blush-2); }
+  .reviews .sec-head p { color: var(--blush-2); }
+  .rail { display: grid; grid-auto-flow: column; grid-auto-columns: min(86%, 360px); gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; scrollbar-width: thin; }
+  .quote { scroll-snap-align: start; background: color-mix(in srgb, var(--cream) 8%, transparent); border: 1px solid color-mix(in srgb, var(--cream) 18%, transparent); border-radius: var(--radius); padding: 1.5rem; display: grid; gap: 1rem; align-content: start; }
+  .quote blockquote { margin: 0; font-family: var(--f-display); font-size: 1.35rem; line-height: 1.3; }
+  .quote cite { font-style: normal; font-size: .85rem; opacity: .8; }
+
+  /* ---------- booking ---------- */
+  .book__grid { display: grid; gap: clamp(2rem, 5vw, 4rem); }
+  @media (min-width: 900px) { .book__grid { grid-template-columns: .85fr 1.15fr; } }
+  .info { display: grid; gap: 0; margin-top: 1.75rem; border-top: 1px solid var(--line); }
+  .info div { display: flex; justify-content: space-between; gap: 1rem; padding-block: .8rem; border-bottom: 1px solid var(--line); font-size: .93rem; }
+  .info dt { color: var(--plum-2); }
+  .info dd { margin: 0; text-align: right; font-weight: 500; }
+  .map { margin-top: 1.5rem; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+  .map iframe { display: block; width: 100%; height: 240px; border: 0; }
+
+  form.card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 2rem); display: grid; gap: 1.1rem; box-shadow: var(--shadow); }
+  .row { display: grid; gap: 1.1rem; }
+  @media (min-width: 560px) { .row { grid-template-columns: 1fr 1fr; } }
+  .field { display: grid; gap: .35rem; }
+  .field label, .field legend { font-size: .8rem; font-weight: 700; letter-spacing: .04em; }
+  .field input, .field select, .field textarea {
+    font: inherit; font-size: 1rem; width: 100%; padding: .8rem .9rem; color: var(--plum);
+    background: var(--cream); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .field textarea { min-height: 92px; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--rose-dk); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--rose) 25%, transparent); }
+  .field.invalid input, .field.invalid select { border-color: #B3261E; }
+  .err { color: #B3261E; font-size: .8rem; min-height: 1em; }
+  fieldset.field { border: 0; padding: 0; margin: 0; }
+  .slots { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .35rem; }
+  .slot input { position: absolute; opacity: 0; pointer-events: none; }
+  .slot span { display: inline-block; padding: .55rem .9rem; border-radius: var(--pill); border: 1px solid var(--line); font-size: .88rem; cursor: pointer; }
+  .slot input:checked + span { background: var(--plum); color: var(--cream); border-color: var(--plum); }
+  .slot input:focus-visible + span { outline: 2px solid var(--rose-dk); outline-offset: 2px; }
+  .slot input:disabled + span { opacity: .35; text-decoration: line-through; cursor: not-allowed; }
+  .slots-empty { font-size: .88rem; color: var(--plum-2); }
+  .summary { font-size: .9rem; color: var(--plum-2); }
+  .summary strong { color: var(--plum); }
+  .success { text-align: center; padding-block: 2rem; display: grid; gap: .8rem; justify-items: center; }
+  .success__tick { width: 64px; height: 64px; border-radius: 50%; background: var(--blush); display: grid; place-items: center; font-size: 1.8rem; color: var(--rose-dk); }
+  .success h3 { font-size: 2rem; }
+  .success p { color: var(--plum-2); max-width: 40ch; }
+
+  /* ---------- faq ---------- */
+  .faq { max-width: 760px; margin-inline: auto; border-top: 1px solid var(--line); }
+  .faq details { border-bottom: 1px solid var(--line); padding-block: 1.1rem; }
+  .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; font-family: var(--f-display); font-size: 1.4rem; font-weight: 600; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-family: var(--f-body); color: var(--rose-dk); }
+  .faq details[open] summary::after { content: "–"; }
+  .faq p { margin-top: .6rem; color: var(--plum-2); }
+
+  /* ---------- footer ---------- */
+  footer { background: var(--plum); color: var(--cream); padding-block: 2.5rem; font-size: .88rem; }
+  .foot { display: grid; gap: 1rem; }
+  .foot__row { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: center; }
+  .foot__row .brand b { font-size: 1.3rem; }
+  .demo-note { opacity: .75; border-top: 1px solid color-mix(in srgb, var(--cream) 20%, transparent); padding-top: 1rem; }
+  .demo-note a { text-decoration: underline; }
+
+  /* floating WhatsApp-style book button on mobile */
+  .fab { position: fixed; right: 1rem; bottom: 1rem; z-index: 30; box-shadow: var(--shadow); }
+  @media (min-width: 900px) { .fab { display: none; } }
+
+  /* ---------- reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top"><b>Ivory Lane</b><i>Nail Bar</i></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#team">Team</a>
+      <a href="#faq">FAQ</a>
+      <a href="#book">Visit</a>
+    </nav>
+    <a class="btn btn--primary" href="#book">Book now</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <nav class="drawer" id="drawer" aria-label="Mobile">
+    <a href="#services">Services &amp; prices</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#team">Team</a>
+    <a href="#faq">FAQ</a>
+    <a href="#book">Book &amp; visit</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero wrap" id="top">
+    <div class="hero__grid">
+      <div>
+        <p class="eyebrow">Walmer · Gqeberha</p>
+        <h1>Nails that <em>last</em> the full three weeks.</h1>
+        <p class="hero__lede">Gel, BIAB, acrylic and hand-painted nail art in a calm little studio off Main Road. Pick a service, pick a time, done — no DMs, no waiting for a reply.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#book">Book an appointment</a>
+          <a class="btn btn--ghost" href="#services">See prices</a>
+        </div>
+        <div class="hero__proof">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span>4.9 from 312 Google reviews</span>
+        </div>
+      </div>
+      <div class="hero__media">
+        <picture>
+          <source srcset="img/hero.webp" type="image/webp">
+          <img src="img/hero.jpg" width="935" height="1400" alt="Technician painting a client's nails a deep plum colour" fetchpriority="high">
+        </picture>
+        <div class="badge">
+          <strong>21 days</strong>
+          <span>Gel wear guarantee — chips in week one are fixed free.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="wrap trust__in">
+      <div><strong data-count="6">0</strong><span>years in Walmer</span></div>
+      <div><strong data-count="4800" data-suffix="+">0</strong><span>sets done</span></div>
+      <div><strong data-count="3">0</strong><span>qualified technicians</span></div>
+      <div><strong data-count="100" data-suffix="%">0</strong><span>sterilised tools, every client</span></div>
+    </div>
+  </div>
+
+  <section id="services" class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Services &amp; prices</p>
+      <h2>The menu, prices included</h2>
+      <p>No "from" games on the basics. What you see is what you pay — art and length extras are listed too.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Service category">
+      <button class="tab" role="tab" aria-selected="true" data-filter="all">All</button>
+      <button class="tab" role="tab" aria-selected="false" data-filter="hands">Hands</button>
+      <button class="tab" role="tab" aria-selected="false" data-filter="feet">Feet</button>
+      <button class="tab" role="tab" aria-selected="false" data-filter="extras">Extras</button>
+    </div>
+
+    <div class="menu" id="menu">
+      <!-- data-cat drives the tab filter; data-mins feeds the booking summary -->
+      <div class="item" data-cat="hands"><h3>Gel overlay</h3><span class="price">R280</span><p>Gel colour over your natural nail, cuticle work and shaping. <small>60 min</small></p></div>
+      <div class="item" data-cat="hands"><h3>BIAB builder gel</h3><span class="price">R340</span><p>Strengthening builder gel for weak or bitten nails — the one to grow them out. <small>75 min</small></p></div>
+      <div class="item" data-cat="hands"><h3>Acrylic full set</h3><span class="price">R420</span><p>Tips or sculpted, any shape, finished in gel colour. <small>90 min</small></p></div>
+      <div class="item" data-cat="hands"><h3>Acrylic refill</h3><span class="price">R320</span><p>Rebalance and fill within three weeks of your set. <small>75 min</small></p></div>
+      <div class="item" data-cat="hands"><h3>Classic manicure</h3><span class="price">R190</span><p>Soak, shape, cuticles, hand massage and regular polish. <small>45 min</small></p></div>
+      <div class="item" data-cat="feet"><h3>Gel pedicure</h3><span class="price">R320</span><p>Soak, file, cuticles, hard-skin removal and gel colour. <small>60 min</small></p></div>
+      <div class="item" data-cat="feet"><h3>Spa pedicure</h3><span class="price">R380</span><p>Everything in the gel pedicure plus scrub, mask and a longer massage. <small>80 min</small></p></div>
+      <div class="item" data-cat="extras"><h3>Nail art</h3><span class="price">R20 / nail</span><p>French tips, chrome, foils, dots, hand-painted designs. Bring a picture. <small>Add-on</small></p></div>
+      <div class="item" data-cat="extras"><h3>Soak-off removal</h3><span class="price">R80</span><p>Free when you rebook a new set with us. <small>20 min</small></p></div>
+      <div class="item" data-cat="extras"><h3>Extra length (XL+)</h3><span class="price">R60</span><p>For coffin, stiletto and almond sets past medium. <small>Add-on</small></p></div>
+    </div>
+    <p class="menu-note">Card, SnapScan and cash accepted. Prices include VAT.</p>
+  </section>
+
+  <section class="split">
+    <div class="wrap split__grid">
+      <div class="reveal">
+        <picture>
+          <source srcset="img/gel.webp" type="image/webp">
+          <img src="img/gel.jpg" width="1000" height="667" alt="Client's hand curing under an LED gel lamp" loading="lazy">
+        </picture>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Why it lasts</p>
+        <h2 style="font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem); margin-top: .8rem;">Prep is 80% of a good set</h2>
+        <p style="margin-top: 1rem; color: var(--plum-2);">Most chips come from rushed prep, not bad polish. We take the extra ten minutes so your nails make it to the next appointment.</p>
+        <ul class="checks">
+          <li>Dry cuticle work with sterilised, autoclaved tools</li>
+          <li>Thin layers, each fully LED-cured — no lifting at the edges</li>
+          <li>Professional-only gel brands, HEMA-free options on request</li>
+          <li>Chip in the first week? Come back, we fix it free</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Gallery</p>
+      <h2>Recent sets</h2>
+      <p>Tap any photo to see it bigger. Show us one of these when you book and we will match it.</p>
+    </div>
+    <div class="gallery">
+      <figure style="margin:0"><button data-full="img/g-gold.jpg" data-caption="Gold glitter almond, festive"><picture><source srcset="img/g-gold.webp" type="image/webp"><img src="img/g-gold.jpg" alt="Gold glitter almond nails" loading="lazy" width="900" height="675"></picture></button></figure>
+      <figure style="margin:0"><button data-full="img/g-nude.jpg" data-caption="Milky nude gel overlay"><picture><source srcset="img/g-nude.webp" type="image/webp"><img src="img/g-nude.jpg" alt="Milky nude gel nails" loading="lazy" width="675" height="900"></picture></button></figure>
+      <figure style="margin:0"><button data-full="img/g-french.jpg" data-caption="Classic French, square"><picture><source srcset="img/g-french.webp" type="image/webp"><img src="img/g-french.jpg" alt="Classic French manicure" loading="lazy" width="600" height="900"></picture></button></figure>
+      <figure style="margin:0"><button data-full="img/g-red.jpg" data-caption="Cherry red, short round"><picture><source srcset="img/g-red.webp" type="image/webp"><img src="img/g-red.jpg" alt="Short round cherry red nails" loading="lazy" width="600" height="900"></picture></button></figure>
+      <figure style="margin:0"><button data-full="img/g-dots.jpg" data-caption="Nude with hand-placed dots"><picture><source srcset="img/g-dots.webp" type="image/webp"><img src="img/g-dots.jpg" alt="Nude nails with small dot art" loading="lazy" width="600" height="900"></picture></button></figure>
+      <figure style="margin:0"><button data-full="img/g-art.jpg" data-caption="Minimal line art"><picture><source srcset="img/g-art.webp" type="image/webp"><img src="img/g-art.jpg" alt="Nails with minimal line art" loading="lazy" width="900" height="600"></picture></button></figure>
+    </div>
+    <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+      <button class="close" aria-label="Close">×</button>
+      <img alt="">
+      <p></p>
+    </dialog>
+  </section>
+
+  <section id="team" class="split">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">The team</p>
+        <h2>Three technicians, one standard</h2>
+      </div>
+      <div class="team">
+        <article class="tech reveal"><div class="tech__av" aria-hidden="true">L</div><span>Owner · Art</span><h3>Lerato</h3><p>Opened Ivory Lane in 2020. Hand-painted art, chrome and anything you saw on Pinterest.</p></article>
+        <article class="tech reveal"><div class="tech__av" aria-hidden="true">C</div><span>Acrylic &amp; BIAB</span><h3>Chanté</h3><p>Sculpted extensions and structured builder gel. The person to see if your nails keep breaking.</p></article>
+        <article class="tech reveal"><div class="tech__av" aria-hidden="true">M</div><span>Feet &amp; care</span><h3>Mia</h3><p>Pedicures and natural-nail care. Unhurried, thorough and great with first-timers.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Reviews</p>
+        <h2>What clients say</h2>
+        <p>Swipe for more →</p>
+      </div>
+      <div class="rail" tabindex="0" aria-label="Client reviews">
+        <figure class="quote" style="margin:0"><span class="stars">★★★★★</span><blockquote>My gel made it to day 24 without a single chip. Booking online at 11pm was a lifesaver.</blockquote><cite>— Ayanda, Walmer</cite></figure>
+        <figure class="quote" style="margin:0"><span class="stars">★★★★★</span><blockquote>Chanté rescued my bitten nails with BIAB. Three months in and I have actual length.</blockquote><cite>— Nicole, Mill Park</cite></figure>
+        <figure class="quote" style="margin:0"><span class="stars">★★★★★</span><blockquote>Spotless studio, tools come out of sealed pouches. That is why I drive across town for it.</blockquote><cite>— Thandeka, Summerstrand</cite></figure>
+        <figure class="quote" style="margin:0"><span class="stars">★★★★★</span><blockquote>Brought a screenshot, walked out with the exact set. Lerato is an artist.</blockquote><cite>— Megan, Newton Park</cite></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" class="wrap">
+    <div class="book__grid">
+      <div class="reveal">
+        <p class="eyebrow">Book &amp; visit</p>
+        <h2 style="font-size: clamp(2.1rem, 1.4rem + 2.8vw, 3.4rem); margin-top: .8rem;">Choose a time that suits you</h2>
+        <p style="margin-top: 1rem; color: var(--plum-2);">Pick your service and a slot. We confirm by WhatsApp within the hour during opening times and send a reminder the day before.</p>
+        <dl class="info">
+          <div><dt>Address</dt><dd>14 Ivory Lane, Walmer, Gqeberha</dd></div>
+          <div><dt>Tue – Fri</dt><dd>09:00 – 18:00</dd></div>
+          <div><dt>Saturday</dt><dd>08:00 – 14:00</dd></div>
+          <div><dt>Sun &amp; Mon</dt><dd>Closed</dd></div>
+          <div><dt>Parking</dt><dd>Free, off-street</dd></div>
+        </dl>
+        <div class="map">
+          <iframe title="Map of Walmer, Gqeberha" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=25.565%2C-33.995%2C25.605%2C-33.970&amp;layer=mapnik"></iframe>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form class="card" id="booking" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="b-name">Your name</label>
+              <input id="b-name" name="name" autocomplete="name" required>
+              <span class="err" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="b-phone">Cellphone (WhatsApp)</label>
+              <input id="b-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="^(\+27|0)[6-8][0-9]{8}$" placeholder="082 123 4567">
+              <span class="err" aria-live="polite"></span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="b-service">Service</label>
+            <select id="b-service" name="service" required>
+              <option value="">Choose a service…</option>
+            </select>
+            <span class="err" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="b-date">Date</label>
+            <input id="b-date" name="date" type="date" required>
+            <span class="err" aria-live="polite"></span>
+          </div>
+          <fieldset class="field">
+            <legend>Time</legend>
+            <div class="slots" id="slots"><span class="slots-empty">Pick a date first.</span></div>
+            <span class="err" id="slot-err" aria-live="polite"></span>
+          </fieldset>
+          <div class="field">
+            <label for="b-notes">Anything we should know? <span style="font-weight:400">(optional)</span></label>
+            <textarea id="b-notes" name="notes" placeholder="Removal needed, design idea, allergies…"></textarea>
+          </div>
+          <p class="summary" id="summary" aria-live="polite"></p>
+          <button class="btn btn--primary" type="submit">Request booking</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="split">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2>Good to know</h2>
+      </div>
+      <div class="faq">
+        <details open><summary>Do I need a deposit?</summary><p>Only for acrylic full sets and appointments over 90 minutes — R100, taken off your total on the day.</p></details>
+        <details><summary>What if I'm running late?</summary><p>Message us. Up to 10 minutes we can usually still do the full service; later than that we may need to shorten it or move you.</p></details>
+        <details><summary>How do I cancel or move a booking?</summary><p>Reply to your confirmation message at least 24 hours before. Late cancellations on deposit bookings forfeit the deposit.</p></details>
+        <details><summary>Gel, BIAB or acrylic — which one?</summary><p>Gel for colour on healthy nails, BIAB to strengthen and grow weak nails, acrylic for length and drama. Not sure? Book a gel overlay slot and we'll advise at the chair.</p></details>
+        <details><summary>Can I bring a design photo?</summary><p>Please do. Add it to your WhatsApp confirmation and we'll quote any nail-art extras before we start.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="btn btn--primary fab" href="#book">Book now</a>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot__row">
+      <a class="brand" href="#top" style="color:inherit"><b>Ivory Lane</b></a>
+      <span>14 Ivory Lane, Walmer, Gqeberha</span>
+      <span>Tue–Sat</span>
+    </div>
+    <p class="demo-note">
+      Demonstration website. Ivory Lane Nail Bar is a fictional business — names, reviews, prices and the address are invented
+      to show what a salon site can do. Designed and built by <a href="../../#work">Frontier Digital</a>. Photos: Pexels.
+    </p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  'use strict';
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- mobile drawer ---------- */
+  const menuBtn = document.querySelector('.menu-btn');
+  const drawer = document.getElementById('drawer');
+  const setDrawer = (open) => {
+    drawer.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  menuBtn.addEventListener('click', () => setDrawer(!drawer.classList.contains('open')));
+  drawer.addEventListener('click', (e) => { if (e.target.closest('a')) setDrawer(false); });
+
+  /* ---------- service tabs ---------- */
+  const tabs = document.querySelectorAll('.tab');
+  const items = document.querySelectorAll('#menu .item');
+  tabs.forEach((tab) => tab.addEventListener('click', () => {
+    tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+    const cat = tab.dataset.filter;
+    items.forEach((it) => { it.hidden = cat !== 'all' && it.dataset.cat !== cat; });
+  }));
+
+  /* ---------- gallery lightbox (native <dialog>) ---------- */
+  const lb = document.getElementById('lightbox');
+  const lbImg = lb.querySelector('img');
+  const lbCap = lb.querySelector('p');
+  document.querySelectorAll('.gallery button').forEach((btn) => btn.addEventListener('click', () => {
+    lbImg.src = btn.dataset.full;
+    lbImg.alt = btn.dataset.caption;
+    lbCap.textContent = btn.dataset.caption;
+    lb.showModal();
+  }));
+  lb.querySelector('.close').addEventListener('click', () => lb.close());
+  lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); }); // click on backdrop
+
+  /* ---------- reveal on scroll + stat counters ---------- */
+  const animateCount = (el) => {
+    const target = Number(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const fmt = (n) => n.toLocaleString('en-ZA') + suffix;
+    if (reduceMotion) { el.textContent = fmt(target); return; }
+    const start = performance.now(), dur = 1200;
+    const tick = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      el.textContent = fmt(Math.round(target * (1 - Math.pow(1 - p, 3)))); // ease-out cubic
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+    if (!en.isIntersecting) return;
+    en.target.classList.add('in');
+    if (en.target.dataset.count) animateCount(en.target);
+    io.unobserve(en.target);
+  }), { threshold: .15 });
+  document.querySelectorAll('.reveal, [data-count]').forEach((el) => io.observe(el));
+
+  /* ---------- booking form ---------- */
+  const form = document.getElementById('booking');
+  const serviceSel = document.getElementById('b-service');
+  const dateInput = document.getElementById('b-date');
+  const slotsBox = document.getElementById('slots');
+  const slotErr = document.getElementById('slot-err');
+  const summary = document.getElementById('summary');
+
+  // Build the service list from the menu so prices live in one place.
+  items.forEach((it) => {
+    const name = it.querySelector('h3').textContent;
+    const price = it.querySelector('.price').textContent;
+    if (it.dataset.cat === 'extras') return; // add-ons are chosen at the chair
+    serviceSel.add(new Option(`${name} — ${price}`, name));
+  });
+
+  const OPEN_HOURS = { 2: [9, 18], 3: [9, 18], 4: [9, 18], 5: [9, 18], 6: [8, 14] }; // day-of-week → [open, close)
+  const pad = (n) => String(n).padStart(2, '0');
+  const isoDate = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+
+  const today = new Date();
+  dateInput.min = isoDate(today);
+  const maxDate = new Date(today); maxDate.setDate(maxDate.getDate() + 60);
+  dateInput.max = isoDate(maxDate);
+
+  // Deterministic pseudo "already booked" slots so the demo looks lived-in.
+  const isTaken = (dateStr, hour) => {
+    let h = 0;
+    for (const ch of dateStr + hour) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+    return h % 4 === 0;
+  };
+
+  const renderSlots = () => {
+    slotsBox.innerHTML = '';
+    slotErr.textContent = '';
+    if (!dateInput.value) { slotsBox.innerHTML = '<span class="slots-empty">Pick a date first.</span>'; return; }
+    const day = new Date(dateInput.value + 'T00:00');
+    const hours = OPEN_HOURS[day.getDay()];
+    if (!hours) { slotsBox.innerHTML = '<span class="slots-empty">Closed Sundays and Mondays — try another day.</span>'; return; }
+    const isToday = dateInput.value === isoDate(new Date());
+    for (let h = hours[0]; h < hours[1] - 1; h++) {
+      const label = document.createElement('label');
+      label.className = 'slot';
+      const input = document.createElement('input');
+      input.type = 'radio'; input.name = 'time'; input.value = `${pad(h)}:00`;
+      input.disabled = isTaken(dateInput.value, h) || (isToday && h <= new Date().getHours());
+      const span = document.createElement('span');
+      span.textContent = input.value;
+      label.append(input, span);
+      slotsBox.append(label);
+    }
+  };
+
+  const updateSummary = () => {
+    const time = form.querySelector('input[name="time"]:checked');
+    if (!serviceSel.value || !dateInput.value || !time) { summary.textContent = ''; return; }
+    const d = new Date(dateInput.value + 'T00:00').toLocaleDateString('en-ZA', { weekday: 'long', day: 'numeric', month: 'long' });
+    summary.innerHTML = '';
+    summary.append('You are booking ');
+    const s = document.createElement('strong'); s.textContent = serviceSel.value; summary.append(s);
+    summary.append(` on ${d} at ${time.value}.`);
+  };
+
+  dateInput.addEventListener('change', () => { renderSlots(); updateSummary(); });
+  serviceSel.addEventListener('change', updateSummary);
+  slotsBox.addEventListener('change', () => { slotErr.textContent = ''; updateSummary(); });
+
+  const messages = {
+    'b-name': 'Please tell us your name.',
+    'b-phone': 'Enter a South African cellphone number, e.g. 082 123 4567.',
+    'b-service': 'Choose a service.',
+    'b-date': 'Choose a date within the next 60 days.',
+  };
+  const checkField = (input) => {
+    if (input.id === 'b-phone') input.value = input.value.replace(/[\s-]/g, ''); // tolerate spaces/dashes
+    const field = input.closest('.field');
+    const ok = input.checkValidity();
+    field.classList.toggle('invalid', !ok);
+    field.querySelector('.err').textContent = ok ? '' : messages[input.id];
+    input.setAttribute('aria-invalid', String(!ok));
+    return ok;
+  };
+  Object.keys(messages).forEach((id) => {
+    const el = document.getElementById(id);
+    el.addEventListener('blur', () => { if (el.value) checkField(el); });
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fieldsOk = Object.keys(messages).map((id) => checkField(document.getElementById(id))).every(Boolean);
+    const time = form.querySelector('input[name="time"]:checked');
+    if (!time) slotErr.textContent = 'Choose a time slot.';
+    if (!fieldsOk || !time) {
+      const firstBad = form.querySelector('[aria-invalid="true"]') || slotsBox.querySelector('input:not(:disabled)');
+      if (firstBad) firstBad.focus();
+      return;
+    }
+    // Demo only: a real build posts to the booking backend / calendar here.
+    const name = document.getElementById('b-name').value.trim().split(' ')[0];
+    form.innerHTML = '';
+    const ok = document.createElement('div');
+    ok.className = 'success';
+    ok.innerHTML = '<div class="success__tick" aria-hidden="true">✓</div><h3></h3><p></p><p style="font-size:.82rem">This is a demo site — no booking was sent.</p>';
+    ok.querySelector('h3').textContent = `Thanks, ${name}!`;
+    ok.querySelector('p').textContent = summary.textContent + ' We will confirm on WhatsApp shortly.';
+    form.append(ok);
+    ok.setAttribute('tabindex', '-1');
+    ok.focus();
+  });
+})();
+</script>
+</body>
+</html>
