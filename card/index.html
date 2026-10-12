@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adriaan van Wyk · Frontier Digital</title>
+<meta name="description" content="Digital business card — Frontier Digital: quality websites and apps for small businesses.">
+<meta name="theme-color" content="#0B0B0B">
+<meta property="og:title" content="Adriaan van Wyk · Frontier Digital">
+<meta property="og:description" content="Quality websites & apps for small businesses. Built with care. Built to fit.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://pluto596polite.github.io/MyBusiness/card/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Source+Serif+4:opsz,wght@8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #FFFFFF; --paper-2: #F2F2F0; --ink: #0B0B0B; --ink-soft: #595956; --fg: #FAFAF8;
+    --line: rgba(11,11,11,.24);
+    --f-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --f-body: "Source Serif 4", Georgia, serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100svh; background: var(--paper-2); color: var(--ink);
+    font-family: var(--f-body); -webkit-font-smoothing: antialiased;
+    display: flex; justify-content: center;
+    padding: max(20px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
+  }
+  .wrap { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 18px; }
+  :where(a, button):focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  /* ---------- flip card ---------- */
+  .card { perspective: 1400px; width: 100%; aspect-ratio: 85 / 55; cursor: pointer; border: 0; padding: 0; background: none; }
+  .card__inner {
+    position: relative; width: 100%; height: 100%;
+    transform-style: preserve-3d; transition: transform .7s cubic-bezier(.2,.8,.2,1);
+  }
+  .card[aria-pressed="true"] .card__inner { transform: rotateY(180deg); }
+  .face {
+    position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    border: 1px solid var(--ink); box-shadow: 6px 6px 0 var(--ink);
+    padding: 6% 7%; display: flex; flex-direction: column; justify-content: space-between; text-align: left;
+    font-size: clamp(9px, 2.6vw, 11.5px);
+  }
+  .front { background: var(--paper); color: var(--ink); }
+  .back { background: var(--ink); color: var(--fg); transform: rotateY(180deg); flex-direction: row; gap: 6%; align-items: stretch; }
+  .brand { display: flex; align-items: center; gap: .8em; }
+  .mono-mark { width: 3.2em; height: 3.2em; background: var(--ink); color: var(--paper); display: grid; place-items: center; font: 800 1.25em/1 var(--f-display); }
+  .brand b { font: 800 1.75em/1 var(--f-display); letter-spacing: -.03em; display: block; }
+  .brand i { font: 400 .8em/1.3 var(--f-mono); font-style: normal; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft); }
+  .tagline { font: 800 3em/0.98 var(--f-display); letter-spacing: -.04em; }
+  .tagline em { font-style: normal; background: var(--ink); color: var(--paper); padding: 0 .15em; }
+  .front__foot { display: flex; justify-content: space-between; border-top: 1.5px solid var(--ink); padding-top: .8em; font: .85em var(--f-mono); }
+  .front__foot span:last-child { color: var(--ink-soft); }
+  .hint { position: absolute; right: 4%; top: 5%; font: .75em var(--f-mono); color: var(--ink-soft); display: flex; align-items: center; gap: .3em; }
+  .hint svg { width: 1.2em; height: 1.2em; }
+
+  .back__info { flex: 1; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; }
+  .back__name { font: 800 2.2em/1 var(--f-display); letter-spacing: -.03em; }
+  .back__role { font: .8em var(--f-mono); letter-spacing: .2em; text-transform: uppercase; opacity: .7; margin-top: .4em; }
+  .back__rows { font-family: var(--f-mono); }
+  .back__rows div { padding: .5em 0; border-bottom: 1px solid rgba(250,250,248,.25); }
+  .back__rows div:last-child { border: 0; }
+  .back__rows small { display: block; font-size: .7em; letter-spacing: .15em; text-transform: uppercase; opacity: .6; }
+  .back__rows span { font-size: 1em; overflow-wrap: anywhere; }
+  .qr { width: 34%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .7em; }
+  .qr div { background: #fff; padding: 7%; width: 100%; }
+  .qr svg { display: block; width: 100%; height: auto; }
+  .qr small { font: .7em var(--f-mono); letter-spacing: .15em; text-transform: uppercase; opacity: .75; text-align: center; }
+
+  .flip-note { text-align: center; font: .78rem var(--f-mono); color: var(--ink-soft); margin-top: -4px; }
+
+  /* ---------- actions ---------- */
+  .intro { font-size: 1rem; line-height: 1.55; color: var(--ink-soft); }
+  .intro strong { color: var(--ink); font-weight: 600; }
+  .actions { display: grid; gap: 10px; }
+  .act {
+    display: flex; align-items: center; gap: 14px; min-height: 58px; padding: 0 18px;
+    border: 1px solid var(--ink); background: var(--paper); color: var(--ink);
+    text-decoration: none; font: 800 1.02rem var(--f-display); letter-spacing: -.01em;
+    cursor: pointer; width: 100%; text-align: left;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .act:hover { transform: translate(-2px,-2px); box-shadow: 3px 3px 0 var(--ink); }
+  .act:active { transform: none; box-shadow: none; }
+  .act svg { width: 22px; height: 22px; flex: none; }
+  .act span { flex: 1; }
+  .act small { font: 400 .72rem var(--f-mono); color: var(--ink-soft); display: block; letter-spacing: 0; }
+  .act--solid { background: var(--ink); color: var(--fg); }
+  .act--solid small { color: rgba(250,250,248,.7); }
+  .act--solid:hover { box-shadow: 3px 3px 0 var(--ink-soft); }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .row2 .act { justify-content: center; text-align: center; font-size: .92rem; padding: 0 10px; }
+  .row2 .act span { flex: none; }
+
+  .toast {
+    position: fixed; left: 50%; bottom: max(24px, env(safe-area-inset-bottom)); transform: translate(-50%, 120px);
+    background: var(--ink); color: var(--fg); font: .85rem var(--f-mono); padding: 12px 18px;
+    transition: transform .3s; pointer-events: none;
+  }
+  .toast.show { transform: translate(-50%, 0); }
+  footer { text-align: center; font: .72rem var(--f-mono); color: var(--ink-soft); padding-top: 6px; }
+  footer a { color: inherit; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <button class="card" id="card" aria-pressed="false" aria-label="Business card. Tap to flip and see contact details.">
+    <div class="card__inner">
+      <div class="face front" aria-hidden="false">
+        <span class="hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>tap</span>
+        <div class="brand">
+          <div class="mono-mark">FD</div>
+          <div><b>Frontier Digital</b><i>Websites &amp; apps</i></div>
+        </div>
+        <div class="tagline">Built with care.<br><em>Built to fit.</em></div>
+        <div class="front__foot"><span>Free preview before you pay</span><span>Gqeberha · SA</span></div>
+      </div>
+      <div class="face back" aria-hidden="true">
+        <div class="back__info">
+          <div>
+            <div class="back__name">Adriaan van Wyk</div>
+            <div class="back__role">Frontier Digital</div>
+          </div>
+          <div class="back__rows">
+            <div><small>Email</small><span>avanwyk191@gmail.com</span></div>
+            <div><small>Website</small><span>pluto596polite.github.io/MyBusiness</span></div>
+            <div><small>Based in</small><span>Gqeberha · worldwide</span></div>
+          </div>
+        </div>
+        <div class="qr">
+          <div><svg viewBox="0 0 33 33" shape-rendering="crispEdges" role="img" aria-label="QR code to the Frontier Digital website"><path fill="#0B0B0B" d="M0 0h7v1h-7zM9 0h1v1h-1zM12 0h4v1h-4zM18 0h7v1h-7zM26 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h4v1h-4zM17 1h1v1h-1zM20 1h1v1h-1zM22 1h3v1h-3zM26 1h1v1h-1zM32 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h1v1h-1zM11 2h1v1h-1zM15 2h1v1h-1zM19 2h2v1h-2zM23 2h2v1h-2zM26 2h1v1h-1zM28 2h3v1h-3zM32 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM9 3h1v1h-1zM11 3h1v1h-1zM13 3h1v1h-1zM16 3h1v1h-1zM18 3h1v1h-1zM22 3h2v1h-2zM26 3h1v1h-1zM28 3h3v1h-3zM32 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM10 4h1v1h-1zM13 4h5v1h-5zM20 4h1v1h-1zM22 4h1v1h-1zM24 4h1v1h-1zM26 4h1v1h-1zM28 4h3v1h-3zM32 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM9 5h4v1h-4zM14 5h3v1h-3zM18 5h3v1h-3zM26 5h1v1h-1zM32 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h7v1h-7zM12 7h2v1h-2zM16 7h4v1h-4zM22 7h1v1h-1zM1 8h3v1h-3zM5 8h2v1h-2zM10 8h1v1h-1zM14 8h2v1h-2zM17 8h1v1h-1zM20 8h3v1h-3zM30 8h2v1h-2zM0 9h1v1h-1zM3 9h1v1h-1zM7 9h1v1h-1zM9 9h2v1h-2zM12 9h12v1h-12zM26 9h2v1h-2zM29 9h4v1h-4zM3 10h2v1h-2zM6 10h1v1h-1zM10 10h1v1h-1zM12 10h2v1h-2zM16 10h1v1h-1zM18 10h1v1h-1zM21 10h1v1h-1zM23 10h1v1h-1zM27 10h3v1h-3zM31 10h2v1h-2zM0 11h1v1h-1zM3 11h2v1h-2zM7 11h2v1h-2zM10 11h1v1h-1zM13 11h2v1h-2zM16 11h2v1h-2zM19 11h1v1h-1zM24 11h1v1h-1zM27 11h1v1h-1zM29 11h1v1h-1zM2 12h2v1h-2zM6 12h1v1h-1zM9 12h1v1h-1zM11 12h1v1h-1zM14 12h1v1h-1zM16 12h1v1h-1zM19 12h1v1h-1zM22 12h1v1h-1zM24 12h2v1h-2zM27 12h3v1h-3zM32 12h1v1h-1zM1 13h2v1h-2zM4 13h1v1h-1zM7 13h1v1h-1zM10 13h3v1h-3zM14 13h1v1h-1zM19 13h3v1h-3zM23 13h2v1h-2zM27 13h1v1h-1zM31 13h1v1h-1zM0 14h1v1h-1zM5 14h3v1h-3zM11 14h3v1h-3zM16 14h1v1h-1zM19 14h2v1h-2zM22 14h1v1h-1zM24 14h1v1h-1zM26 14h1v1h-1zM0 15h2v1h-2zM10 15h3v1h-3zM17 15h1v1h-1zM19 15h1v1h-1zM21 15h2v1h-2zM24 15h3v1h-3zM28 15h3v1h-3zM0 16h1v1h-1zM3 16h1v1h-1zM5 16h2v1h-2zM8 16h4v1h-4zM13 16h1v1h-1zM15 16h1v1h-1zM17 16h1v1h-1zM20 16h2v1h-2zM24 16h3v1h-3zM28 16h3v1h-3zM4 17h1v1h-1zM10 17h2v1h-2zM14 17h2v1h-2zM17 17h1v1h-1zM20 17h2v1h-2zM23 17h2v1h-2zM26 17h1v1h-1zM28 17h2v1h-2zM31 17h2v1h-2zM1 18h1v1h-1zM3 18h4v1h-4zM9 18h1v1h-1zM11 18h2v1h-2zM15 18h1v1h-1zM21 18h1v1h-1zM25 18h4v1h-4zM30 18h2v1h-2zM0 19h1v1h-1zM2 19h1v1h-1zM4 19h2v1h-2zM8 19h8v1h-8zM17 19h1v1h-1zM22 19h4v1h-4zM28 19h1v1h-1zM31 19h1v1h-1zM1 20h2v1h-2zM5 20h3v1h-3zM9 20h1v1h-1zM11 20h1v1h-1zM13 20h1v1h-1zM16 20h1v1h-1zM20 20h2v1h-2zM24 20h2v1h-2zM29 20h2v1h-2zM0 21h2v1h-2zM3 21h1v1h-1zM5 21h1v1h-1zM7 21h1v1h-1zM9 21h2v1h-2zM15 21h7v1h-7zM23 21h1v1h-1zM26 21h2v1h-2zM32 21h1v1h-1zM2 22h2v1h-2zM5 22h3v1h-3zM11 22h2v1h-2zM14 22h5v1h-5zM21 22h4v1h-4zM26 22h1v1h-1zM28 22h2v1h-2zM31 22h2v1h-2zM1 23h3v1h-3zM8 23h1v1h-1zM16 23h3v1h-3zM22 23h1v1h-1zM24 23h2v1h-2zM28 23h2v1h-2zM31 23h1v1h-1zM0 24h1v1h-1zM6 24h1v1h-1zM10 24h4v1h-4zM18 24h1v1h-1zM22 24h8v1h-8zM31 24h2v1h-2zM8 25h4v1h-4zM14 25h1v1h-1zM17 25h1v1h-1zM19 25h1v1h-1zM21 25h2v1h-2zM24 25h1v1h-1zM28 25h2v1h-2zM0 26h7v1h-7zM10 26h1v1h-1zM19 26h3v1h-3zM23 26h2v1h-2zM26 26h1v1h-1zM28 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM8 27h3v1h-3zM12 27h3v1h-3zM16 27h1v1h-1zM19 27h3v1h-3zM23 27h2v1h-2zM28 27h3v1h-3zM32 27h1v1h-1zM0 28h1v1h-1zM2 28h3v1h-3zM6 28h1v1h-1zM9 28h1v1h-1zM11 28h2v1h-2zM14 28h1v1h-1zM16 28h4v1h-4zM21 28h8v1h-8zM30 28h2v1h-2zM0 29h1v1h-1zM2 29h3v1h-3zM6 29h1v1h-1zM8 29h3v1h-3zM12 29h3v1h-3zM17 29h2v1h-2zM20 29h1v1h-1zM22 29h1v1h-1zM27 29h1v1h-1zM29 29h1v1h-1zM31 29h2v1h-2zM0 30h1v1h-1zM2 30h3v1h-3zM6 30h1v1h-1zM8 30h3v1h-3zM12 30h3v1h-3zM18 30h1v1h-1zM20 30h2v1h-2zM23 30h1v1h-1zM26 30h2v1h-2zM29 30h2v1h-2zM0 31h1v1h-1zM6 31h1v1h-1zM8 31h2v1h-2zM11 31h2v1h-2zM16 31h2v1h-2zM23 31h1v1h-1zM25 31h1v1h-1zM27 31h2v1h-2zM32 31h1v1h-1zM0 32h7v1h-7zM10 32h1v1h-1zM12 32h2v1h-2zM15 32h1v1h-1zM19 32h1v1h-1zM21 32h1v1h-1zM23 32h1v1h-1zM26 32h1v1h-1zM28 32h1v1h-1zM30 32h1v1h-1z"/></svg></div>
+          <small>Scan for the website</small>
+        </div>
+      </div>
+    </div>
+  </button>
+  <p class="flip-note" id="flip-note">Tap the card to flip it</p>
+
+  <p class="intro">Quality websites and apps for small businesses — <strong>honestly priced, made to your requirements</strong>, and not finished until you're happy. Every package under R3 000.</p>
+
+  <div class="actions">
+    <a class="act act--solid" href="https://pluto596polite.github.io/MyBusiness/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+      <span>Visit the website<small>Work, prices and FAQ</small></span>
+    </a>
+    <a class="act" href="https://pluto596polite.github.io/MyBusiness/#contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h2"/></svg>
+      <span>Request a free preview<small>Quick form, reply by email</small></span>
+    </a>
+    <a class="act" href="mailto:avanwyk191@gmail.com?subject=Website%20enquiry">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16"/><path d="m22 6-10 7L2 6"/></svg>
+      <span>Email<small>avanwyk191@gmail.com</small></span>
+    </a>
+    <a class="act" href="frontier-digital.vcf" download="Adriaan van Wyk - Frontier Digital.vcf">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+      <span>Save contact<small>Adds Adriaan to your phone</small></span>
+    </a>
+    <div class="row2">
+      <button class="act" type="button" id="share">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
+        <span>Share card</span>
+      </button>
+      <button class="act" type="button" id="copy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span>Copy link</span>
+      </button>
+    </div>
+  </div>
+
+  <footer>Frontier Digital · Gqeberha, South Africa · <a href="https://pluto596polite.github.io/MyBusiness/">website</a></footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  'use strict';
+  const CARD_URL = 'https://pluto596polite.github.io/MyBusiness/card/';
+  const card = document.getElementById('card');
+  const faces = card.querySelectorAll('.face');
+  const note = document.getElementById('flip-note');
+
+  card.addEventListener('click', () => {
+    const flipped = card.getAttribute('aria-pressed') !== 'true';
+    card.setAttribute('aria-pressed', String(flipped));
+    faces[0].setAttribute('aria-hidden', String(flipped));
+    faces[1].setAttribute('aria-hidden', String(!flipped));
+    note.textContent = flipped ? 'Tap again for the front' : 'Tap the card to flip it';
+  });
+
+  const toast = document.getElementById('toast');
+  let t;
+  const say = (msg) => {
+    toast.textContent = msg; toast.classList.add('show');
+    clearTimeout(t); t = setTimeout(() => toast.classList.remove('show'), 2200);
+  };
+
+  const copy = async () => {
+    try { await navigator.clipboard.writeText(CARD_URL); say('Link copied'); }
+    catch { prompt('Copy this link:', CARD_URL); }
+  };
+  document.getElementById('copy').addEventListener('click', copy);
+
+  // Native share sheet on phones (WhatsApp, SMS, email…); copy as fallback.
+  document.getElementById('share').addEventListener('click', async () => {
+    const data = { title: 'Frontier Digital', text: 'Quality websites & apps for small businesses — Frontier Digital', url: CARD_URL };
+    if (navigator.share) {
+      try { await navigator.share(data); } catch (e) { if (e.name !== 'AbortError') copy(); }
+    } else {
+      copy();
+    }
+  });
+})();
+</script>
+</body>
+</html>
